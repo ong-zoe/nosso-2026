@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoé — Saúde e esperança para a Amazônia</title>
+<meta name="description" content="A Zoé leva saúde especializada a comunidades ribeirinhas e indígenas remotas da Amazônia. Conheça as expedições e torne-se doador mensal.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zoé — Saúde e esperança para a Amazônia">
+<meta property="og:description" content="Leve saúde a comunidades remotas da Amazônia. Torne-se doador mensal da Zoé.">
+<meta name="theme-color" content="#29235c">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>(function(w,d,s,n,a){if(!w[n]){var l='call,catch,on,once,set,then,track,openCheckout'.split(','),i,o=function(n){return'function'==typeof n?o.l.push([arguments])&&o:function(){return o.l.push([n,arguments])&&o}},t=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=!0;j.src='https://cdn.fundraiseup.com/widget/'+a+'';t.parentNode.insertBefore(j,t);o.s=Date.now();o.v=5;o.h=w.location.href;o.l=[];for(i=0;i<8;i++)o[l[i]]=o(l[i]);w[n]=o}})(window,document,'script','FundraiseUp','ANNGYZMA');</script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: #cc5b3e; text-decoration: none; }
+  a:hover { color: #29235c; }
+  button { font: inherit; }
+  img { display: block; }
+  section[id] { scroll-margin-top: 88px; }
+  .zoe-nav a { color: #4a4572; }
+  .zoe-nav a:hover { color: #cc5b3e; }
+  @media (max-width: 780px) { .zoe-nav { display: none !important; } }
+  @keyframes zoeFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes zoeBackdrop { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes zoeModal { from { opacity: 0; transform: translateY(26px) scale(.985); } to { opacity: 1; transform: none; } }
+  @keyframes zoeSpin { to { transform: rotate(360deg); } }
+  @keyframes zoeBob { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-7px) rotate(6deg); } }
+  @keyframes zoePulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,91,62,0.45); } 70% { box-shadow: 0 0 0 16px rgba(204,91,62,0); } }
+  @keyframes zoeNudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
+  ::selection { background: #29235c; color: #f6f3ed; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s cubic-bezier(.16,.8,.3,1), transform .75s cubic-bezier(.16,.8,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  :focus-visible { outline: 3px solid #cc5b3e; outline-offset: 3px; border-radius: 6px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    * { animation: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="background: #f6f3ed; color: #29235c; font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; overflow-x: hidden;">
+
+  <!-- TOP BAR -->
+  <header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 14px clamp(18px, 5vw, 64px); background: rgba(246,243,237,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(41,35,92,0.10);">
+    <a href="#topo" aria-label="Zoé — início" style="display: flex; align-items: center; gap: 12px;">
+      <img src="assets/zoe-logo-sm.png" alt="Zoé" width="480" height="231" style="height: 32px; width: auto;">
+    </a>
+    <nav class="zoe-nav" aria-label="Seções do portal" style="display: flex; align-items: center; gap: clamp(18px, 2.4vw, 32px); font-size: 14.5px; font-weight: 600;">
+      <a href="#expedicoes">Expedições</a>
+      <a href="#doar">Doar</a>
+    </nav>
+    <a href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" style="background: #cc5b3e; color: #fff; font-weight: 600; font-size: clamp(13px, 3.6vw, 15px); letter-spacing: 0.01em; padding: 10px clamp(16px, 4vw, 22px); border-radius: 999px; box-shadow: 0 4px 14px rgba(204,91,62,0.28); transition: transform .15s ease, box-shadow .15s ease, background .15s ease;" style-hover="background: #b84e33; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(204,91,62,0.36); color:#fff;">Doar agora</a>
+  </header>
+
+  <main>
+  <!-- HERO -->
+  <section id="topo" style="position: relative; min-height: clamp(560px, 90vh, 800px); display: flex; align-items: flex-end; padding: clamp(96px, 14vw, 140px) clamp(20px, 5vw, 64px) clamp(44px, 6vw, 80px); overflow: hidden;">
+    <img src="assets/photos/site/hero-forest.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(175deg, rgba(41,35,92,0.58) 0%, rgba(41,35,92,0.55) 42%, rgba(24,20,56,0.94) 100%);"></div>
+    <div style="position: relative; width: 100%; max-width: 1180px; margin: 0 auto; color: #fff; animation: zoeFade .85s ease both;">
+      <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #f9c3b1; font-weight: 700; margin: 0 0 20px; text-shadow: 0 1px 10px rgba(24,20,56,0.65);">Zoé · Balanço do 1º semestre de 2026</p>
+      <h1 style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(30px, 8vw, 82px); line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 22px; max-width: 15ch; text-wrap: balance; overflow-wrap: break-word; hyphens: auto;">Sete expedições. Milhares de vidas alcançadas. E tudo isso começa com <em style="font-style: italic; color: #f4a48c;">você.</em></h1>
+      <p style="font-size: clamp(16px, 2.2vw, 21px); line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 0 34px;">Levamos saúde e esperança a comunidades remotas da Amazônia, e nada disso existe sem doadores que sustentam a operação o ano inteiro. Some-se a eles.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+        <a href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" style="background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(15px, 2vw, 17px); letter-spacing: 0.01em; padding: 16px 34px; border-radius: 999px; box-shadow: 0 14px 34px -10px rgba(204,91,62,0.6); transition: transform .15s ease, background .15s ease;" style-hover="background:#b84e33; transform:translateY(-2px); color:#fff;">Quero doar agora</a>
+        <a href="#expedicoes" style="background: rgba(255,255,255,0.12); color: #fff; font-weight: 600; font-size: clamp(15px, 2vw, 17px); padding: 16px 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: background .15s ease;" style-hover="background:rgba(255,255,255,0.22); color:#fff;">Ver as expedições</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(18px, 4vw, 44px); margin-top: clamp(36px, 5vw, 52px); padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.2);">
+        <div><div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4vw, 36px); line-height: 1; color: #fff;" data-countup="7">7</div><div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.72); margin-top: 6px; font-weight: 600;">Expedições</div></div>
+        <div><div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4vw, 36px); line-height: 1; color: #fff;" data-countup="+5.000">+5.000</div><div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.72); margin-top: 6px; font-weight: 600;">Atendimentos</div></div>
+        <div><div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4vw, 36px); line-height: 1; color: #fff;" data-countup="165">165</div><div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.72); margin-top: 6px; font-weight: 600;">Cirurgias</div></div>
+        <div><div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4vw, 36px); line-height: 1; color: #fff;" data-countup="+100">+100</div><div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.72); margin-top: 6px; font-weight: 600;">Voluntários</div></div>
+        <div><div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4vw, 36px); line-height: 1; color: #fff;" data-countup="+R$ 1 mi">+R$ 1 mi</div><div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.72); margin-top: 6px; font-weight: 600;">Em serviços doados</div></div>
+        <div role="note" style="display: inline-flex; align-items: center; gap: 9px; margin-left: auto; padding: 9px 15px 9px 11px; border-radius: 999px; background: rgba(204,91,62,0.22); border: 1px solid rgba(244,164,140,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4a48c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; animation: zoeNudge 1.4s ease-in-out infinite;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 5 5 12 12 19"></polyline></svg>
+          <span style="font-size: 12.5px; line-height: 1.25; font-weight: 600; color: #fff; letter-spacing: 0.01em;">números só do<br>1º semestre de 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTÓRIA · MAPUERA -->
+  <section aria-label="História: Aldeia Mapuera" style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 9vw, 100px) clamp(20px, 5vw, 40px) clamp(4px, 2vw, 12px);">
+    <div class="reveal" data-reveal="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 56px); align-items: center;">
+      <figure style="margin: 0;">
+        <img src="assets/photos/48.jpg" alt="Chegada à Aldeia Mapuera, no território Wai-Wai" loading="lazy" style="width: 100%; height: clamp(260px, 40vw, 440px); object-fit: cover; border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(41,35,92,0.5);">
+      </figure>
+      <div>
+        <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Aldeia Mapuera · Povo Wai-Wai</p>
+        <h2 style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(27px, 4.8vw, 44px); line-height: 1.08; margin: 0 0 20px; text-wrap: balance;">Uma aldeia que nunca tinha recebido especialistas.</h2>
+        <div style="font-size: clamp(15.5px, 2vw, 17px); line-height: 1.62; color: #4a4572; display: flex; flex-direction: column; gap: 16px;">
+          <p style="margin: 0;">No coração da Terra Indígena Nhamundá/Mapuera, onde só se chega de avião, a comunidade Wai-Wai recebeu, pela primeira vez, atenção médica especializada dentro do próprio território.</p>
+          <p style="margin: 0;">Foram <strong style="color: rgb(41, 35, 92);">487 pessoas atendidas</strong>, <b>1.589 exames</b> oftalmológicos em quem nunca havia feito um, e uma Casa de Saúde reformada que ficou para sempre na aldeia. Numa emergência grave, a mochila de primeiros socorros da equipe salvou uma paciente — a horas de distância do hospital mais próximo.</p>
+          <p style="margin: 8px 0 0; padding-left: 22px; border-left: 4px solid #cc5b3e; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(21px, 3.2vw, 28px); line-height: 1.22; color: #29235c; text-wrap: balance;">Sua doação é o que leva a equipe até onde ninguém mais chega.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO SUA DOAÇÃO VIRA SAÚDE -->
+  <section aria-labelledby="impacto-titulo" style="max-width: 1180px; margin: 0 auto; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px) clamp(20px, 3vw, 32px);">
+    <div class="reveal" data-reveal="" style="max-width: 680px; margin-bottom: clamp(36px, 5vw, 52px);">
+      <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Para onde vai o seu apoio</p>
+      <h2 id="impacto-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0; text-wrap: balance;">Como a sua doação vira saúde na floresta.</h2>
+    </div>
+    <div class="reveal" data-reveal="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(14px, 1.6vw, 20px);">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="6">
+        <div style="position: relative; overflow: hidden; background: #fff; border: 1px solid rgba(41,35,92,0.10); border-radius: 18px; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;" style-hover="transform: translateY(-4px); border-color: rgba(204,91,62,0.42); box-shadow: 0 26px 52px -30px rgba(41,35,92,0.5);">
+          <span aria-hidden="true" style="position: absolute; top: -10px; right: 16px; z-index: 0; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: 88px; line-height: 1; color: rgba(41,35,92,0.06); pointer-events: none;">0{{ f.i }}</span>
+          <span style="position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(204,91,62,0.10);">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#cc5b3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <sc-for list="{{ f.icons }}" as="p" hint-placeholder-count="1"><path d="{{ p }}"></path></sc-for>
+            </svg>
+          </span>
+          <h3 style="position: relative; z-index: 1; font-size: 19px; font-weight: 600; color: #29235c; margin: 0;">{{ f.t }}</h3>
+          <p style="position: relative; z-index: 1; font-size: 15px; line-height: 1.58; color: #6a6590; margin: 0;">{{ f.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FAIXA · BARCOS -->
+
+  <!-- FAIXA · BARCOS -->
+  <section aria-label="A operação na Amazônia" style="position: relative; height: clamp(320px, 50vh, 540px); overflow: hidden;">
+    <img src="assets/photos/site/boats.jpg" alt="Barcos que servem de base às expedições, atracados às margens do Tapajós" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 58%;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(24,20,56,0.12) 0%, rgba(24,20,56,0.15) 42%, rgba(24,20,56,0.9) 100%);"></div>
+    <div style="position: absolute; inset: 0; display: flex; align-items: flex-end;">
+      <div style="width: 100%; max-width: 1180px; margin: 0 auto; padding: clamp(24px, 5vw, 52px) clamp(20px, 5vw, 64px);">
+        <p class="reveal" data-reveal="" style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #f9c3b1; font-weight: 700; margin: 0 0 12px; text-shadow: 0 2px 16px rgba(0,0,0,0.6);">1º semestre de 2026</p>
+        <p class="reveal" data-reveal="" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4.6vw, 46px); line-height: 1.06; color: #fff; margin: 0; max-width: 18ch; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,0.45);">Sete expedições. Um semestre inteiro na Amazônia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPEDIÇÕES · ACCORDION -->
+  <section id="expedicoes" aria-labelledby="expedicoes-titulo" style="max-width: 1080px; margin: 0 auto; padding: clamp(52px, 8vw, 96px) clamp(18px, 5vw, 40px);">
+    <div class="reveal" data-reveal="">
+      <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">As sete expedições</p>
+      <h2 id="expedicoes-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 5.4vw, 46px); line-height: 1.1; margin: 0 0 12px;">Veja para onde o seu apoio foi.</h2>
+      <p style="margin: 0 0 clamp(28px, 4vw, 40px); font-size: clamp(15px, 2vw, 16px); color: #6a6590; max-width: 580px;">Toque em qualquer expedição para abrir o relatório em versão simplificada&nbsp; com fotos, números e link para o documento completo.</p>
+    </div>
+
+    <div class="reveal" data-reveal="" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(24px, 3vw, 34px);">
+      <sc-for list="{{ typeFilters }}" as="ft" hint-placeholder-count="4">
+        <button type="button" onClick="{{ ft.onClick }}" aria-pressed="{{ ft.active }}" style="{{ ft.style }}" style-hover="{{ ft.hoverStyle }}">
+          <sc-if value="{{ ft.isTerra }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5 7.3 12A2 2 0 0 1 9.2 10.5h5.6a2 2 0 0 1 1.9 1.5L18 16.5"></path><path d="M4.5 16.5h15"></path><circle cx="8.5" cy="17.5" r="1.6"></circle><circle cx="15.5" cy="17.5" r="1.6"></circle></svg></sc-if>
+          <sc-if value="{{ ft.isAgua }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.5h16l-1.6 4.2a2 2 0 0 1-1.9 1.3H7.5a2 2 0 0 1-1.9-1.3z"></path><path d="M12 4v6.5M12 6l5 4.5H7z"></path></svg></sc-if>
+          <sc-if value="{{ ft.isAr }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14.5 14 11.8V6a2 2 0 0 0-4 0v5.8L3 14.5v2l7-1.8V19l-2 1.3V22l4-1.1L16 22v-1.7L14 19v-4.3l7 1.8z"></path></svg></sc-if>
+          <span>{{ ft.label }}</span>
+          <span style="{{ ft.countStyle }}">{{ ft.count }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div class="reveal" data-reveal="" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: clamp(16px, 2vw, 24px);">
+      <sc-for list="{{ filteredItems }}" as="it" hint-placeholder-count="7">
+        <button type="button" onClick="{{ it.onOpen }}" aria-label="Ver detalhes da {{ it.n }}ª Expedição — {{ it.name }}" style="{{ it.cardStyle }}" style-hover="{{ it.cardHover }}">
+          <span style="position: relative; display: block;">
+            <img src="assets/photos/{{ it.n }}-800.jpg" srcset="assets/photos/{{ it.n }}-400.jpg 400w, assets/photos/{{ it.n }}-800.jpg 800w" sizes="(max-width: 640px) 92vw, 360px" alt="{{ it.name }}" loading="lazy" style="width: 100%; height: 190px; object-fit: cover; display: block;">
+            <span title="{{ it.typeTitle }}" style="{{ it.typeStyle }}">
+              <sc-if value="{{ it.isTerra }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5 7.3 12A2 2 0 0 1 9.2 10.5h5.6a2 2 0 0 1 1.9 1.5L18 16.5"></path><path d="M4.5 16.5h15"></path><circle cx="8.5" cy="17.5" r="1.6"></circle><circle cx="15.5" cy="17.5" r="1.6"></circle></svg></sc-if>
+              <sc-if value="{{ it.isAgua }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.5h16l-1.6 4.2a2 2 0 0 1-1.9 1.3H7.5a2 2 0 0 1-1.9-1.3z"></path><path d="M12 4v6.5M12 6l5 4.5H7z"></path></svg></sc-if>
+              <sc-if value="{{ it.isAr }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14.5 14 11.8V6a2 2 0 0 0-4 0v5.8L3 14.5v2l7-1.8V19l-2 1.3V22l4-1.1L16 22v-1.7L14 19v-4.3l7 1.8z"></path></svg></sc-if>
+              {{ it.typeLabel }}
+            </span>
+          </span>
+          <span style="display: flex; flex-direction: column; gap: 9px; padding: clamp(20px, 2.6vw, 26px); flex: 1;">
+            <span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #cc5b3e;">{{ it.n }}ª · {{ it.tagline }}</span>
+            <span style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-size: clamp(22px, 3vw, 27px); font-weight: 400; line-height: 1.12; color: #29235c;">{{ it.name }}</span>
+            <span style="font-size: 14.5px; line-height: 1.5; color: #6a6590;">{{ it.lead }}</span>
+            <span style="display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 6px;">
+              <sc-for list="{{ it.miniStats }}" as="st" hint-placeholder-count="3">
+                <span style="display: flex; flex-direction: column;">
+                  <span style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-size: 20px; font-weight: 400; color: #29235c; line-height: 1;">{{ st.v }}</span>
+                  <span style="font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.03em; color: #8a86a8; font-weight: 600; margin-top: 4px;">{{ st.l }}</span>
+                </span>
+              </sc-for>
+            </span>
+            <span style="margin-top: auto; padding-top: 10px; display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 14.5px; color: #cc5b3e;">Ver detalhes →</span>
+          </span>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- MODAL DE DETALHE -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-name" onClick="{{ close }}" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: clamp(10px, 4vw, 48px); background: rgba(24,20,56,0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); overflow-y: auto; animation: zoeBackdrop .25s ease both;">
+      <div onClick="{{ stop }}" style="width: 100%; max-width: 760px; margin: auto; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.55); animation: zoeModal .35s cubic-bezier(.16,.8,.3,1) both;">
+        <div style="position: relative;">
+          <figure style="margin: 0; position: relative;">
+            {{ modalImg }}
+            <span title="{{ active.typeTitle }}" style="{{ active.typeStyle }}">
+              <sc-if value="{{ active.isTerra }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5 7.3 12A2 2 0 0 1 9.2 10.5h5.6a2 2 0 0 1 1.9 1.5L18 16.5"></path><path d="M4.5 16.5h15"></path><circle cx="8.5" cy="17.5" r="1.6"></circle><circle cx="15.5" cy="17.5" r="1.6"></circle></svg></sc-if>
+              <sc-if value="{{ active.isAgua }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.5h16l-1.6 4.2a2 2 0 0 1-1.9 1.3H7.5a2 2 0 0 1-1.9-1.3z"></path><path d="M12 4v6.5M12 6l5 4.5H7z"></path></svg></sc-if>
+              <sc-if value="{{ active.isAr }}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14.5 14 11.8V6a2 2 0 0 0-4 0v5.8L3 14.5v2l7-1.8V19l-2 1.3V22l4-1.1L16 22v-1.7L14 19v-4.3l7 1.8z"></path></svg></sc-if>
+              {{ active.typeLabel }}
+            </span>
+          </figure>
+          <button type="button" aria-label="Fechar" onClick="{{ close }}" style="position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; border-radius: 999px; border: none; background: rgba(255,255,255,0.94); color: #29235c; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.25); transition: background .15s ease, transform .2s ease;" style-hover="background:#fff; transform:rotate(90deg);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </button>
+        </div>
+
+        <div style="padding: clamp(22px, 3.6vw, 40px);">
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 8px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #cc5b3e; font-weight: 700;">{{ active.n }}ª Expedição</span>
+            <span style="font-size: 13px; color: #8a86a8; font-weight: 500;">{{ active.place }} · {{ active.dates }}</span>
+          </div>
+          <h3 id="modal-name" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5vw, 44px); line-height: 1.04; margin: 0 0 14px; color: #29235c;">{{ active.name }}</h3>
+          <p style="margin: 0 0 clamp(22px,3vw,28px); font-size: clamp(16px, 2.2vw, 20px); line-height: 1.45; color: #29235c; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-style: italic;">{{ active.lead }}</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1px; background: rgba(41,35,92,0.08); border: 1px solid rgba(41,35,92,0.08); border-radius: 14px; overflow: hidden; margin-bottom: clamp(24px,3vw,32px);">
+            <sc-for list="{{ active.stats }}" as="st" hint-placeholder-count="5">
+              <div style="background: #fbfaf7; padding: clamp(16px,2.2vw,22px) clamp(12px,1.8vw,18px);">
+                <div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(22px,3.6vw,32px); line-height: 1; color: #29235c;">{{ st.v }}</div>
+                <div style="margin-top: 7px; font-size: 11px; line-height: 1.3; letter-spacing: 0.02em; text-transform: uppercase; color: #8a86a8; font-weight: 600;">{{ st.l }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 12px;">Sobre a expedição</p>
+          <p style="margin: 0 0 26px; font-size: 16px; line-height: 1.62; color: #4a4572;">{{ active.about }}</p>
+
+          <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Destaques</p>
+          <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;">
+            <sc-for list="{{ active.highlights }}" as="h" hint-placeholder-count="3">
+              <div style="border-left: 3px solid #cc5b3e; padding: 3px 0 3px 16px;">
+                <div style="font-weight: 600; font-size: 15.5px; color: #29235c; margin-bottom: 4px;">{{ h.h }}</div>
+                <div style="font-size: 14px; line-height: 1.55; color: #6a6590;">{{ h.b }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">{{ active.breakdownTitle }}</p>
+          <div style="border: 1px solid rgba(41,35,92,0.10); border-radius: 14px; overflow: hidden; margin-bottom: 26px;">
+            <sc-for list="{{ active.breakdown }}" as="b" hint-placeholder-count="6">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 11px 16px; border-bottom: 1px solid rgba(41,35,92,0.07);">
+                <span style="font-size: 14.5px; color: #4a4572;">{{ b.c }}</span>
+                <span style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-size: 18px; font-weight: 400; color: #29235c; white-space: nowrap;">{{ b.t }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="background: #f6f3ed; border-radius: 16px; padding: 22px 24px; margin-bottom: 28px;">
+            <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 10px;">Gratidão</p>
+            <p style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-size: clamp(18px,2.4vw,21px); line-height: 1.2; font-weight: 400; color: #29235c; margin: 0 0 10px;">{{ active.gratTitle }}</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #6a6590; margin: 0;">{{ active.gratText }}</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 18px; align-items: center; padding-top: 22px; border-top: 1px solid rgba(41,35,92,0.10);">
+            <sc-if value="{{ active.hasReport }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ active.reportUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: #29235c; color: #fff; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 999px; transition: background .15s ease, transform .15s ease;" style-hover="background:#1e1a45; transform:translateY(-1px); color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>Ver relatório completo ↗</a>
+            </sc-if>
+            <sc-if value="{{ active.noReport }}" hint-placeholder-val="{{ false }}">
+              <span style="display: inline-flex; align-items: center; gap: 9px; background: #efedf5; color: #8a86a8; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 999px; cursor: default;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>Relatório completo em breve</span>
+            </sc-if>
+            <span style="display: inline-flex; align-items: center; gap: 8px;">
+              <button type="button" aria-label="Expedição anterior" onClick="{{ modalPrev }}" style="width: 42px; height: 42px; border-radius: 999px; border: 1px solid rgba(41,35,92,0.2); background: #fff; color: #29235c; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .15s ease, color .15s ease, border-color .15s ease;" style-hover="background:#29235c; color:#fff; border-color:#29235c;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+              <span style="font-size: 13px; color: #8a86a8; font-weight: 600; letter-spacing: 0.04em; min-width: 54px; text-align: center;">{{ active.pos }} / {{ active.total }}</span>
+              <button type="button" aria-label="Próxima expedição" onClick="{{ modalNext }}" style="width: 42px; height: 42px; border-radius: 999px; border: 1px solid rgba(41,35,92,0.2); background: #fff; color: #29235c; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .15s ease, color .15s ease, border-color .15s ease;" style-hover="background:#29235c; color:#fff; border-color:#29235c;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- VOZES / PROVA SOCIAL -->
+  <section id="historias" aria-labelledby="vozes-titulo" style="background: #f6f3ed; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px) clamp(40px, 5vw, 56px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div class="reveal" data-reveal="" style="max-width: 680px; margin-bottom: clamp(36px, 5vw, 52px);">
+        <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Histórias que o seu apoio escreveu</p>
+        <h2 id="vozes-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0; text-wrap: balance;">Vozes de quem esteve lá.</h2>
+      </div>
+      <div class="reveal" data-reveal="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(18px, 2.5vw, 28px);">
+        <sc-for list="{{ voices }}" as="v" hint-placeholder-count="3">
+          <figure style="margin: 0; background: #fff; border: 1px solid rgba(41,35,92,0.10); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+            <img src="assets/photos/{{ v.photo }}-800.jpg" srcset="assets/photos/{{ v.photo }}-400.jpg 400w, assets/photos/{{ v.photo }}-800.jpg 800w" sizes="(max-width: 640px) 92vw, 360px" alt="{{ v.alt }}" loading="lazy" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; flex: 1;">
+              <blockquote style="margin: 0; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-style: italic; font-size: clamp(19px, 2.4vw, 23px); line-height: 1.32; color: #29235c;">“{{ v.q }}”</blockquote>
+              <figcaption style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(41,35,92,0.10);">
+                <div style="font-weight: 600; font-size: 14.5px; color: #29235c;">{{ v.who }}</div>
+                <div style="font-size: 13px; color: #8a86a8; margin-top: 3px;">{{ v.ctx }}</div>
+              </figcaption>
+            </div>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS DE DOAÇÃO -->
+  <section id="doar" aria-labelledby="planos-titulo" style="background: #fff; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px);">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <div class="reveal" data-reveal="" style="max-width: 640px; margin: 0 auto clamp(40px, 5vw, 56px); text-align: center;">
+        <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Faça parte</p>
+        <h2 id="planos-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0 0 16px; text-wrap: balance;">Como você quer apoiar hoje?</h2>
+        <p style="font-size: clamp(15px, 2vw, 17px); line-height: 1.55; color: #6a6590; margin: 0;">Se você já doa mensalmente, temos um caminho especial para você. Escolha abaixo.</p>
+      </div>
+
+      <div class="reveal" data-reveal="" role="tablist" aria-label="Tipo de doador" style="display: flex; gap: 4px; max-width: 470px; margin: 0 auto clamp(32px, 4vw, 44px); padding: 5px; background: #f2eee7; border: 1px solid rgba(41,35,92,0.10); border-radius: 999px;">
+        <button type="button" role="tab" aria-selected="{{ donorNovo }}" onClick="{{ setNovo }}" style="{{ segNovoStyle }}">Quero começar a doar</button>
+        <button type="button" role="tab" aria-selected="{{ donorMensal }}" onClick="{{ setMensal }}" style="{{ segMensalStyle }}">Já sou doador mensal</button>
+      </div>
+
+      <sc-if value="{{ donorNovo }}" hint-placeholder-val="{{ true }}">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: clamp(16px, 2vw, 22px); align-items: stretch;">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
+          <div style="{{ t.cardStyle }}" style-hover="{{ t.cardHover }}">
+            <sc-if value="{{ t.hasGift }}" hint-placeholder-val="{{ false }}">
+              <span role="img" aria-label="Bônus: ao escolher este plano você ganha um boné da Zoé" style="position: absolute; top: -26px; right: -16px; width: 104px; height: 104px; z-index: 4; pointer-events: none; animation: zoeBob 3.4s ease-in-out infinite;">
+                <svg viewBox="0 0 100 100" width="104" height="104" style="display: block; animation: zoeSpin 11s linear infinite; filter: drop-shadow(0 6px 14px rgba(41,35,92,0.35));">
+                  <defs><path id="giftArc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"></path></defs>
+                  <circle cx="50" cy="50" r="49" fill="#29235c"></circle>
+                  <circle cx="50" cy="50" r="49" fill="none" stroke="#f4a48c" stroke-width="1.5" stroke-dasharray="2 4"></circle>
+                  <text fill="#fff" font-size="11" font-weight="700" letter-spacing="1.8" font-family="'Inter', sans-serif"><textPath href="#giftArc" startOffset="0">GANHE UM BONÉ EXCLUSIVO · </textPath></text>
+                </svg>
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#f4a48c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                </span>
+              </span>
+            </sc-if>
+            <sc-if value="{{ t.hasBadge }}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #f4a48c; color: #29235c; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap;">{{ t.badge }}</span>
+            </sc-if>
+            <p style="{{ t.nameStyle }}">{{ t.name }}</p>
+            <div style="{{ t.amountStyle }}">{{ t.amount }}<span style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; opacity: 0.6;">{{ t.period }}</span></div>
+            <p style="{{ t.blurbStyle }}">{{ t.blurb }}</p>
+            <a href="{{ t.donate }}" onClick="{{ t.onDonate }}" style="{{ t.btnStyle }}" style-hover="{{ t.btnHover }}">{{ t.cta }}</a>
+          </div>
+        </sc-for>
+      </div>
+      <p style="text-align: center; margin: clamp(28px, 4vw, 38px) 0 0; font-size: 13.5px; color: #8a86a8;">Doação segura via FundraiseUp · você escolhe o valor e cancela quando quiser.</p>
+      </sc-if>
+
+      <sc-if value="{{ donorMensal }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width: 860px; margin: 0 auto;">
+          <div style="background: #29235c; color: #fff; border-radius: 22px; padding: clamp(28px, 4vw, 44px); text-align: center; margin-bottom: clamp(22px, 3vw, 30px);">
+            <p style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #f4a48c; font-weight: 700; margin: 0 0 12px;">Você já é o motor disso</p>
+            <h3 style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(24px, 4vw, 36px); line-height: 1.12; margin: 0 0 14px;">Obrigado por sustentar a Zoé o ano inteiro.</h3>
+            <p style="font-size: clamp(15px, 2vw, 17px); line-height: 1.6; color: rgba(255,255,255,0.88); margin: 0 auto; max-width: 580px;">Sua doação mensal é o que garante a próxima expedição. Se quiser ir além neste segundo semestre, faça uma <strong style="color:#fff;">doação extra pontual</strong>.</p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 18px; background: #fff7f4; border: 1.5px solid #f4a48c; border-radius: 18px; padding: 18px 22px; margin-bottom: clamp(24px, 3vw, 32px);">
+            <span style="flex-shrink: 0; width: 54px; height: 54px; border-radius: 14px; background: #cc5b3e; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px -8px rgba(204,91,62,0.7);">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+            </span>
+            <div style="text-align: left;">
+              <div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2.7vw, 23px); line-height: 1.18; color: #29235c;">Doe <strong style="color: #cc5b3e; font-weight: 400;">R$ 200 ou mais</strong> e ganhe o boné exclusivo da Zoé.</div>
+              <div style="font-size: 13.5px; line-height: 1.4; color: #a06a58; margin-top: 5px; font-weight: 500;">Um agradecimento que você veste — e leva a Amazônia com você por onde for.</div>
+            </div>
+          </div>
+
+          <p style="text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #cc5b3e; font-weight: 700; margin: 0 0 16px;">Fazer uma doação extra</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
+            <sc-for list="{{ extras }}" as="x" hint-placeholder-count="4">
+              <a href="{{ x.donate }}" onClick="{{ x.onDonate }}" style="{{ x.cardStyle }}" style-hover="{{ x.hoverStyle }}">
+                <sc-if value="{{ x.gift }}" hint-placeholder-val="{{ false }}">
+                  <span style="position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: #cc5b3e; color: #fff; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; white-space: nowrap;">+ boné exclusivo</span>
+                </sc-if>
+                <span style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(22px, 3.4vw, 28px); color: #29235c; line-height: 1;">{{ x.v }}</span>
+                <span style="font-size: 12.5px; color: #8a86a8; font-weight: 600;">doação única</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <p style="text-align: center; margin: clamp(24px, 3vw, 32px) 0 0; font-size: 14.5px; color: #6a6590;">Prefere aumentar sua mensalidade? <a href="{{ donateUrl }}" onClick="{{ onDonateGeneric }}" style="color: #cc5b3e; font-weight: 600; border-bottom: 1px solid rgba(204,91,62,0.4);">Ajustar minha doação mensal</a></p>
+          <p style="text-align: center; margin: 14px 0 0; font-size: 13px; color: #a7a3c0;">Doação segura via FundraiseUp.</p>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- FAIXA · ACOLHIMENTO -->
+  <section aria-label="O cuidado que chega perto" style="position: relative; height: clamp(360px, 58vh, 620px); overflow: hidden;">
+    <img src="assets/photos/site/embrace.jpg" alt="Voluntária acolhe uma paciente idosa em uma comunidade da floresta" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(24,20,56,0.08) 0%, rgba(24,20,56,0.02) 45%, rgba(24,20,56,0.62) 100%);"></div>
+    <div style="position: absolute; inset: 0; display: flex; align-items: flex-end;">
+      <div style="width: 100%; max-width: 1180px; margin: 0 auto; padding: clamp(24px, 5vw, 56px) clamp(20px, 5vw, 64px);">
+        <p class="reveal" data-reveal="" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(24px, 4.4vw, 44px); line-height: 1.08; color: #fff; margin: 0; max-width: 16ch; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,0.5);">O cuidado que chega perto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOAÇÃO -->
+  <section id="apoiar" aria-labelledby="doar-titulo" style="background: #cc5b3e; color: #fff; padding: clamp(56px, 9vw, 108px) clamp(20px, 5vw, 40px);">
+    <div class="reveal" data-reveal="" style="max-width: 780px; margin: 0 auto; text-align: center;">
+      <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.82); font-weight: 600; margin: 0 0 20px;">O segundo semestre já começou</p>
+      <h2 id="doar-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(30px, 6.4vw, 58px); line-height: 1.06; letter-spacing: -0.01em; margin: 0 0 22px; text-wrap: balance;">Cada expedição existe por causa de quem doa.</h2>
+      <p style="font-size: clamp(16px, 2.3vw, 20px); line-height: 1.6; color: rgba(255,255,255,0.92); margin: 0 auto 36px; max-width: 620px;">São os doadores pessoas físicas que mantêm a operação funcionando entre uma expedição e outra. No segundo semestre, queremos realizar <strong style="color:#fff;">mais 6 expedições</strong> e chegar a <strong style="color:#fff;">mais de 10 comunidades</strong> que precisam de atendimento médico — e a sua doação garante a próxima partida.</p>
+      <a href="{{ donateUrl }}" onClick="{{ onDonateGeneric }}" style="display: inline-block; background: #fff; color: #cc5b3e; font-weight: 700; font-size: clamp(16px, 2.2vw, 17px); letter-spacing: 0.01em; padding: 16px clamp(28px, 6vw, 40px); border-radius: 999px; box-shadow: 0 12px 30px -8px rgba(0,0,0,0.35); transition: transform .15s ease, color .15s ease;" style-hover="transform: translateY(-2px); color:#b84e33;">Garantir a próxima expedição</a>
+      <p style="margin: 22px 0 0; font-size: 13.5px; color: rgba(255,255,255,0.75);">Doação segura · você escolhe o valor e a recorrência</p>
+      <a href="https://ongzoe.org/transparencia" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 11px; margin: 26px auto 0; padding: 13px 22px; border-radius: 999px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.5); color: #fff; font-weight: 600; font-size: clamp(14px, 2vw, 15.5px); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: background .15s ease, transform .15s ease, color .15s ease;" style-hover="background:#fff; color:#b84e33; transform: translateY(-1px);">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+        <span>Transparência total: veja nossa prestação de contas</span>
+      </a>
+      <p style="margin: 14px 0 0; font-size: 12.5px; color: rgba(255,255,255,0.72);">Nossas expedições com recurso público têm prestação de contas auditada.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background: #29235c; color: #c9c1ee; padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);">
+    <div style="max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+      <div>
+        <div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-size: 34px; font-weight: 400; color: #fff; line-height: 1; margin-bottom: 12px;">Zoé</div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; max-width: 420px; color: #b0a8d8;">Associação de Apoio à Saúde de Populações Remotas — levando saúde e esperança a comunidades ribeirinhas e indígenas da Amazônia.</p>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.8; color: #b0a8d8;">
+        <div>CNPJ 43.982.556/0001-33</div>
+        <div><a href="https://ongzoe.org" style="color: #fff; font-weight: 600;">ongzoe.org</a></div>
+      </div>
+    </div>
+    <div style="max-width: 1080px; margin: 32px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 12.5px; color: #8078b0;">Relatórios de expedição · 1º semestre de 2026 · 44ª à 50ª expedição</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900},&quot;donateUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://ongzoe.org/?form=FUNVKMBZSWK&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Doação&quot;,&quot;label&quot;:&quot;Link base FundraiseUp (?form=…)&quot;}}">
+class Component extends DCLogic {
+  state = { modal: null, donor: "novo", filter: "all" };
+
+  get expeditions() {
+    return [
+      {
+        n: "44", name: "Janeiro Branco", tagline: "Saúde mental",
+        place: "Belterra, PA", dates: "21–25 jan 2026", reportUrl: "https://drive.google.com/file/d/1IApuJZInyj1fVh-uju88_09p_FBI1Q_7/view",
+        lead: "A psicologia sai do consultório e vai ao encontro da comunidade.",
+        photoCaption: "Roda de acolhimento — ninguém cuida da própria saúde mental sozinho.",
+        about: "Alinhada à campanha nacional Janeiro Branco, a 44ª Expedição foi inteiramente dedicada à saúde mental — “do consultório à rodovia”. Uma equipe de 9 voluntários, liderada pela psicóloga Ana Lúcia Gomes Castello, levou cuidado psicológico e psiquiátrico para onde as pessoas estão: praças, rodovia e unidades de saúde, em parceria com o CAPS de Belterra, a Academia da Saúde e a Secretaria Municipal de Saúde.",
+        stats: [
+          { v: "101", l: "Atendimentos realizados" },
+          { v: "93", l: "Consultas individuais" },
+          { v: "9", l: "Voluntários" },
+          { v: "56", l: "Horas doadas" },
+          { v: "R$ 12,8 mil", l: "Em serviços doados" }
+        ],
+        breakdownTitle: "Atendimentos por categoria",
+        breakdown: [
+          { c: "Psicologia — individual", t: "68" },
+          { c: "Psiquiatria — individual", t: "25" },
+          { c: "Psicologia em grupo", t: "8" },
+          { c: "Total geral", t: "101" }
+        ],
+        highlights: [
+          { h: "Sociodrama na Praça Brasil", b: "Teatro e psicologia juntos: a própria comunidade encena e processa, em grupo, questões de saúde mental — com o grupo de ginástica da Academia da Saúde." },
+          { h: "Pedágio da conscientização", b: "Na rodovia, a equipe parou o trânsito para distribuir material psicoeducativo e acolher motoristas, moradores e trabalhadores da região." },
+          { h: "Cuidado que continua", b: "O Janeiro Branco terminou, mas a Zoé mantém programas contínuos de psicologia e psiquiatria ao longo de 2026." }
+        ],
+        gratTitle: "A quem sustenta o cuidado, todos os dias.",
+        gratText: "A cada escuta, a cada conversa que tira o sofrimento do silêncio, há um doador por trás."
+      },
+      {
+        n: "45", name: "Alto Arapiuns", tagline: "Ribeirinhos",
+        place: "Alto Rio Arapiuns · Santarém e Belterra, PA", dates: "23 fev – 7 mar 2026", reportUrl: "https://drive.google.com/file/d/1tdZ0ThRKix-23xV7JO3UYCenZwhsD2Et/view",
+        lead: "Atendimento nas comunidades ribeirinhas do Alto Rio Arapiuns, a bordo do Abaré II.",
+        photoCaption: "O barco Abaré II, base da expedição pelo Alto Rio Arapiuns.",
+        about: "Treze dias de trabalho contínuo nas comunidades ribeirinhas do Alto Rio Arapiuns, no oeste do Pará — área de difícil acesso onde muitos moradores passam meses sem contato com profissionais de saúde. A ação uniu clínica geral, pediatria, diagnóstico por imagem, saúde da mulher, odontologia, testagem rápida e exames laboratoriais.",
+        stats: [
+          { v: "972", l: "Atendimentos realizados" },
+          { v: "13", l: "Dias de expedição" },
+          { v: "4", l: "Voluntários" },
+          { v: "256", l: "Horas doadas" },
+          { v: "R$ 78,6 mil", l: "Em serviços doados" }
+        ],
+        breakdownTitle: "Atendimentos por categoria",
+        breakdown: [
+          { c: "Clínica geral", t: "315" },
+          { c: "Odontologia", t: "249" },
+          { c: "Testes rápidos", t: "137" },
+          { c: "Pediatria", t: "117" },
+          { c: "Coletas de Papanicolau", t: "85" },
+          { c: "Exames laboratoriais", t: "41" },
+          { c: "Ultrassons", t: "28" }
+        ],
+        highlights: [
+          { h: "Diagnóstico em campo", b: "Ultrassom, exames laboratoriais e testagem rápida realizados no próprio território, longe dos centros urbanos." },
+          { h: "Saúde da mulher", b: "85 coletas de Papanicolau, aproximando a prevenção de quem raramente acessa a especialidade." },
+          { h: "Base no Abaré II", b: "O barco funcionou como base da expedição pelas comunidades do Alto Rio Arapiuns." }
+        ],
+        gratTitle: "A quem sustenta a operação, todos os dias.",
+        gratText: "Cada número representa uma pessoa acolhida — muitas vendo um profissional de saúde pela primeira vez em muito tempo."
+      },
+      {
+        n: "46", name: "Olhar Amazônico", tagline: "Saúde ocular",
+        place: "Belterra, PA", dates: "21–29 mar 2026", reportUrl: "https://drive.google.com/file/d/1d8G-vgHQhGmyebLOjnNHVjmsj1J9p0Px/view",
+        lead: "A primeira edição da série de saúde ocular: exames, consultas, cirurgias e doação de óculos.",
+        photoCaption: "A alegria de enxergar: pacientes no pós-operatório, com óculos escuros doados.",
+        about: "Primeira edição de uma nova série da Zoé dedicada à saúde ocular de populações remotas. Em nove dias, 9 voluntários levaram a Belterra uma frente completa de oftalmologia: exames, consultas, cirurgias e doação de óculos, com foco na detecção precoce e na correção de problemas de visão que comprometem o estudo, o trabalho e a autonomia.",
+        stats: [
+          { v: "1.504", l: "Atendimentos realizados" },
+          { v: "99", l: "Óculos doados" },
+          { v: "9", l: "Voluntários" },
+          { v: "408", l: "Horas doadas" },
+          { v: "R$ 70.560", l: "Em serviços doados" }
+        ],
+        breakdownTitle: "Atendimentos por categoria",
+        breakdown: [
+          { c: "Exames", t: "1.161" },
+          { c: "Consultas clínicas", t: "186" },
+          { c: "Doações de óculos", t: "99" },
+          { c: "Cirurgias de pterígio", t: "58" },
+          { c: "Total geral", t: "1.504" }
+        ],
+        highlights: [
+          { h: "Óculos sob medida", b: "A Ótica Miguel Giannini doou os óculos e levou equipe própria para achar a armação e as lentes ideais de cada paciente — inclusive multifocais." },
+          { h: "58 cirurgias de pterígio", b: "Remoção de um crescimento de tecido sobre a córnea, comum em quem vive exposto ao sol, ao vento e à poeira — devolvendo conforto e nitidez." },
+          { h: "A alegria de enxergar", b: "Para uma criança, um par de óculos é a diferença entre acompanhar ou ficar para trás na escola." }
+        ],
+        gratTitle: "A quem sustenta a operação, todos os dias.",
+        gratText: "A cada exame realizado, a cada par de óculos entregue, há um doador por trás."
+      },
+      {
+        n: "47", name: "Rio Arapiuns", tagline: "Indígena · embarcada",
+        place: "Alto e Médio Arapiuns · Santarém, PA", dates: "6–12 abr 2026", reportUrl: "https://drive.google.com/file/d/1Ml_p8RkbJx2u-QKCdkd8YPG-JeUnq9rz/view",
+        lead: "Atendimento nas comunidades indígenas e ribeirinhas, a bordo do barco-hospital Abaré 2.",
+        photoCaption: "A roda de mãos dadas na Aldeia Cachoeira do Maró.",
+        about: "Primeira ação embarcada da Zoé no rio Arapiuns. Em sete dias, 15 voluntários percorreram o Alto e Médio Arapiuns a bordo do barco-hospital Abaré 2, levando consultas especializadas, ultrassom e odontologia a comunidades indígenas e ribeirinhas de difícil acesso. Foram atendidas 430 pessoas — 178 indígenas (41%), de cinco etnias.",
+        stats: [
+          { v: "430", l: "Pessoas atendidas" },
+          { v: "649", l: "Procedimentos" },
+          { v: "126", l: "Exames de ultrassom" },
+          { v: "15", l: "Voluntários" },
+          { v: "R$ 167 mil", l: "Em horas doadas" }
+        ],
+        breakdownTitle: "Principais procedimentos (SIGTAP)",
+        breakdown: [
+          { c: "Consulta especializada", t: "423" },
+          { c: "Ultrassonografia", t: "126" },
+          { c: "Consulta de nível superior", t: "55" },
+          { c: "Exodontia", t: "40" },
+          { c: "Demais odontológicos", t: "25" }
+        ],
+        highlights: [
+          { h: "Uma comunidade-sede por dia", b: "Durante cinco dias, o Abaré 2 ancorava em uma sede por dia enquanto lanchas rápidas ampliavam o alcance às comunidades vizinhas." },
+          { h: "A roda da Aldeia Cachoeira do Maró", b: "Recebida e homenageada, a equipe formou com os moradores uma grande roda de mãos dadas — um dos momentos mais marcantes." },
+          { h: "Legado a bordo", b: "Climatização de consultório, colchões, roupas de cama e utensílios ficaram instalados no Abaré 2 para as próximas ações." }
+        ],
+        gratTitle: "A quem abriu os rios e as portas do Arapiuns.",
+        gratText: "A cada quilômetro navegado pelo Arapiuns, houve uma parceria — e um doador — por trás."
+      },
+      {
+        n: "48", name: "Aldeia Mapuera", tagline: "Indígena · Wai-Wai",
+        place: "Oriximiná, PA · T.I. Nhamundá/Mapuera", dates: "24–30 abr 2026", reportUrl: "https://drive.google.com/file/d/1dBnskEhduhmrMbNfxWbGIJwK6_aA5LUh/view",
+        lead: "Saúde especializada no território Wai-Wai, onde chegar depende do céu.",
+        photoCaption: "A chegada à Aldeia Mapuera, no território Wai-Wai.",
+        about: "Saúde especializada na Aldeia Mapuera, na Terra Indígena Nhamundá/Mapuera, no âmbito do Programa Agora Tem Especialistas. Foram 487 pessoas atendidas — 98,6% indígenas, majoritariamente Wai-Wai — em um território de acesso fluvial difícil e forte dependência de apoio aéreo, com até oito consultórios simultâneos montados numa escola local.",
+        stats: [
+          { v: "487", l: "Pessoas atendidas" },
+          { v: "2.363", l: "Atendimentos e registros" },
+          { v: "1.589", l: "Exames oftalmológicos" },
+          { v: "307", l: "Exames de ultrassom" },
+          { v: "98,6%", l: "Do público indígena" }
+        ],
+        breakdownTitle: "Produção por especialidade",
+        breakdown: [
+          { c: "Oftalmologia", t: "1.217" },
+          { c: "Ginecologia e Obstetrícia", t: "360" },
+          { c: "Radiologia (ultrassom)", t: "221" },
+          { c: "Clínica Médica", t: "199" },
+          { c: "Odontologia", t: "161" },
+          { c: "Dermatologia", t: "104" },
+          { c: "Pediatria", t: "77" }
+        ],
+        highlights: [
+          { h: "Casa de Saúde entregue à aldeia", b: "Reforma completa com banheiros, saneamento, cozinha, alojamento, instalação elétrica e gerador — tudo permanece na aldeia depois que a equipe vai embora." },
+          { h: "Uma vida salva em campo", b: "Diante de uma intercorrência grave, a mochila de emergência da equipe permitiu resposta imediata na própria aldeia, onde a referência fica a horas de distância." },
+          { h: "Rastreamento oftalmológico", b: "1.589 exames na população Wai-Wai, que não tinha acesso a rastreamento visual — sozinha, a oftalmologia respondeu por 51,5% da produção." }
+        ],
+        gratTitle: "A quem tornou possível chegar até Mapuera.",
+        gratText: "Foi o apoio logístico e o trabalho dos voluntários que chegou a cada paciente na Aldeia Mapuera."
+      },
+      {
+        n: "49", name: "Junho Cirúrgico", tagline: "Cirúrgico · a maior da história",
+        place: "Belterra, PA · Tapajós", dates: "20–28 jun 2026", reportUrl: "https://drive.google.com/file/d/1CPWzvwxPLnzFd2MslxGyD8lipWPPmPZu/view",
+        lead: "A maior expedição da história da Zoé: 55 voluntários no coração do Tapajós.",
+        photoCaption: "Parte dos 55 voluntários — a maior equipe da história da Zoé.",
+        about: "A maior expedição da história da Zoé. Entre 20 e 28 de junho, 55 voluntários montaram uma estrutura cirúrgica temporária dentro do Hospital Municipal de Belterra, enquanto um grupo itinerante saía diariamente para atender comunidades ribeirinhas, aldeias indígenas e unidades de saúde parceiras. Ao todo, 2.984 horas doadas e R$ 677 mil em serviços — superando a marca de junho de 2025.",
+        stats: [
+          { v: "98", l: "Cirurgias realizadas" },
+          { v: "1.449", l: "Atendimentos totais" },
+          { v: "55", l: "Voluntários" },
+          { v: "2.984", l: "Horas doadas" },
+          { v: "R$ 677 mil", l: "Em serviços doados" }
+        ],
+        breakdownTitle: "Atendimentos por especialidade",
+        breakdown: [
+          { c: "Radiologia (ultrassom)", t: "321" },
+          { c: "Dermatologia", t: "278" },
+          { c: "Ginecologia", t: "182" },
+          { c: "Pediatria", t: "124" },
+          { c: "Cirurgia dermatológica", t: "61" },
+          { c: "Consulta pré-operatória", t: "37" }
+        ],
+        highlights: [
+          { h: "Saídas itinerantes diárias", b: "Todos os dias um grupo de médicos saía da base para atender Mentai, aldeias indígenas (Bragança, Lago da Praia) e UBSs parceiras — de avião monomotor ou lancha." },
+          { h: "Acolhimento em Aldeia Cachoeirinha", b: "Uma psicóloga viajou duas horas de barco para acolher uma comunidade em luto após uma tragédia, num trabalho de reprocessamento do trauma." },
+          { h: "95 profissionais treinados", b: "Dois treinamentos práticos para a rede local — RCP só com as mãos e Saúde da Criança — fortalecendo quem permanece no território." }
+        ],
+        gratTitle: "A quem sustenta a operação, todos os dias.",
+        gratText: "A cada cirurgia, a cada acolhimento, a cada quilômetro navegado, há um doador por trás."
+      },
+      {
+        n: "50", name: "Terra Indígena Zoʼé", tagline: "Indígena · a origem do nome",
+        place: "Terra Indígena Zoʼé, PA", dates: "20–21 jun 2026", reportUrl: "",
+        lead: "Cirurgias no meio da floresta atendendo o povo que dá nome à nossa organização.",
+        photoCaption: "O encontro com o povo Zoʼé, sob a maloca, na Terra Indígena Zoʼé.",
+        about: "A Zoé leva esse nome em homenagem ao povo Zoʼé, um povo Tupi-Guarani de contato recente — cerca de 350 pessoas que vivem entre os rios Cuminapanema e Erepecuru, no norte do Pará. Em dois dias, uma equipe enxuta de 9 voluntários levou cirurgia, ultrassom e dermatologia ao território, operando com padrão de centro cirúrgico no meio da floresta, sob coordenação do Ministério da Saúde e do DSEI Guamá-Tocantins e com a mediação da FUNAI e da própria comunidade.",
+        stats: [
+          { v: "59", l: "Atendimentos no total" },
+          { v: "9", l: "Cirurgias realizadas" },
+          { v: "33", l: "Exames de ultrassom" },
+          { v: "7", l: "Amostras de biópsia" },
+          { v: "48", l: "Horas doadas" }
+        ],
+        breakdownTitle: "Procedimentos realizados",
+        breakdown: [
+          { c: "Ultrassom (imagem)", t: "33" },
+          { c: "Consultas dermatológicas", t: "10" },
+          { c: "Cirurgias (4 hérnias · 5 derm.)", t: "9" },
+          { c: "Amostras de biópsia", t: "7" },
+          { c: "Procedimentos dermatológicos", t: "5" }
+        ],
+        highlights: [
+          { h: "Voltar à origem do nome", b: "A Zoé nasceu inspirada no povo Zoʼé; levar saúde a essa comunidade foi voltar à própria origem da associação." },
+          { h: "A sala de cirurgia na floresta", b: "Equipe, equipamentos e estrutura cirúrgica transportados para o meio da floresta, operando com o mesmo padrão de segurança de um centro cirúrgico." },
+          { h: "Cuidado com respeito", b: "Para um povo de contato recente, sair do território expõe a riscos; o cuidado chegou até eles, mediado pela comunidade e respeitando língua, tempo e autonomia." }
+        ],
+        gratTitle: "A quem sustenta a operação, todos os dias.",
+        gratText: "A cada cirurgia, a cada acolhimento, a cada quilômetro navegado, há um doador por trás."
+      }
+    ];
+  }
+
+  get semester() {
+    return [
+      { v: "7", l: "Expedições realizadas" },
+      { v: "+5.000", l: "Atendimentos e pessoas alcançadas" },
+      { v: "165", l: "Cirurgias realizadas" },
+      { v: "+100", l: "Voluntários mobilizados" },
+      { v: "+R$ 1 mi", l: "Em serviços de saúde doados" }
+    ];
+  }
+
+  get features() {
+    return [
+      { t: "Atenção especializada", d: "Consultas médicas, pediatria e diagnóstico por imagem onde não há oferta permanente.", icons: ["M22 12h-4l-3 9L9 3l-3 9H2"] },
+      { t: "Cirurgias que mudam vidas", d: "Hérnia, vesícula, pterígio e outros procedimentos que tiram pessoas da fila de espera.", icons: ["M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"] },
+      { t: "Saúde ocular", d: "Exames, cirurgias e óculos sob medida para quem estava deixando de enxergar.", icons: ["M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z", "M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"] },
+      { t: "Saúde mental e acolhimento", d: "Psicologia e psiquiatria levadas a praças, rodovias e comunidades em luto.", icons: ["M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"] },
+      { t: "Logística até o impossível", d: "Barcos, lanchas e aviões monomotor para chegar a quem vive a horas de distância.", icons: ["M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z", "M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"] },
+      { t: "Legado que permanece", d: "Duas salas de centro cirúrgico equipadas no Hospital Municipal de Belterra e a casa de saúde em Mapuera: estruturas montadas pela Zoé que ficam com as comunidades.", icons: ["M3 12l9-7 9 7", "M5 10.5V20h14v-9.5"] }
+    ];
+  }
+
+  get voices() {
+    return [
+      { q: "Nunca tinha passado por um especialista. Aqui, na minha comunidade, fizeram meus exames e me explicaram tudo com calma. Saí com esperança.", who: "Paciente atendida no Rio Arapiuns", ctx: "Expedição embarcada · abril de 2026", photo: "47", alt: "Paciente atendida durante expedição embarcada no Rio Arapiuns" },
+      { q: "A cada armação ajustada, o olhar percorria a sala — e o mundo, enfim, nítido.", who: "46ª Expedição · Olhar Amazônico", ctx: "A alegria de enxergar", photo: "46", alt: "Paciente experimenta óculos novos na expedição Olhar Amazônico" },
+      { q: "Voltar ao povo Zoʼé é voltar à origem do nome da nossa organização.", who: "50ª Expedição · Terra Indígena Zoʼé", ctx: "Junho de 2026", photo: "50", alt: "Equipe Zoé em encontro com o povo Zoʼé na Terra Indígena Zoʼé" }
+    ];
+  }
+
+  // Dados reais das expedições 51ª–56ª (2º semestre) — guardados para uso futuro; não exibidos no momento.
+  get upcoming() {
+    return [
+      { title: "51ª — Saúde Mental", date: "16–19 de julho de 2026", local: "Belterra, PA · Terra", photo: "44" },
+      { title: "52ª — Médio Arapiuns", date: "25–31 de agosto de 2026", local: "Rio Arapiuns · Água", photo: "47" },
+      { title: "53ª — Olhar Amazônico 2", date: "27 de set – 4 de out de 2026", local: "Belterra, PA · Terra", photo: "46" },
+      { title: "54ª — Arapiuns", date: "5–16 de outubro de 2026", local: "Rio Arapiuns · Água", photo: "45" },
+      { title: "55ª — Aldeias de São Paulo", date: "Data a confirmar", local: "São Paulo, SP · Terra", photo: "50" },
+      { title: "56ª — Dezembro Cirúrgico", date: "28 de nov – 6 de dez de 2026", local: "Belterra, PA · Terra", photo: "49" }
+    ];
+  }
+
+  get partners() {
+    return [
+      "Ministério da Saúde", "SESAI", "AgSUS", "FUNAI", "Fundação Dieter Morszeck",
+      "Fundação Salvador Arena", "Eurofarma", "Hospital Sírio-Libanês", "LATAM Cargo",
+      "Prefeitura de Santarém", "Prefeitura de Belterra", "Ótica Miguel Giannini",
+      "DB Diagnósticos", "Avanos Medical", "Ethicon · J&J"
+    ];
+  }
+
+  get tiers() {
+    return [
+      { name: "Apoia", amount: "R$ 50", amt: 50, period: "/mês", blurb: "Medicamentos e insumos que abastecem os atendimentos em campo.", featured: false, cta: "Doar R$ 50/mês" },
+      { name: "Mantém", amount: "R$ 120", amt: 120, period: "/mês", blurb: "Leva a equipe a uma comunidade que passou meses sem atendimento.", featured: true, badge: "Mais escolhido", cta: "Doar R$ 120/mês" },
+      { name: "Sustenta", amount: "R$ 200", amt: 200, period: "/mês", blurb: "Custeia os exames que detectam uma doença a tempo: ultrassom, biópsia e visão.", featured: false, gift: true, cta: "Doar R$ 200/mês" },
+      { name: "Livre", amount: "Você escolhe", period: "", blurb: "Doação única ou recorrente, do seu jeito. Toda quantia conta.", featured: false, cta: "Doar outro valor" }
+    ];
+  }
+
+  startIndex() {
+    const map = { "44": 0, "45": 1, "46": 2, "47": 3, "48": 4, "49": 5, "50": 6 };
+    const key = String(this.props.startExpedition ?? "44").slice(0, 2);
+    return map[key] ?? 0;
+  }
+
+  componentDidMount() {
+    if (typeof window === "undefined") return;
+    this._onKey = (ev) => {
+      if (this.state.modal == null) return;
+      if (ev.key === "Escape") { this.close(); return; }
+      if (ev.key === "Tab") {
+        const dlg = document.querySelector('[role="dialog"]');
+        if (!dlg) return;
+        const f = dlg.querySelectorAll('a[href], button:not([disabled])');
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && document.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    };
+    window.addEventListener("keydown", this._onKey);
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          this._io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    this._cio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { this.animateCount(e.target); this._cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.55 });
+    setTimeout(() => {
+      document.querySelectorAll("[data-reveal]").forEach((el) => this._io.observe(el));
+      document.querySelectorAll("[data-countup]").forEach((el) => this._cio.observe(el));
+    }, 60);
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._cio) this._cio.disconnect();
+    if (typeof window !== "undefined" && this._onKey) window.removeEventListener("keydown", this._onKey);
+    if (typeof document !== "undefined") document.body.style.overflow = "";
+  }
+
+  animateCount(el) {
+    const raw = el.getAttribute("data-countup");
+    if (raw == null) return;
+    const m = raw.match(/\d[\d.\s]*\d|\d/);
+    if (!m) return;
+    const numStr = m[0];
+    const target = parseInt(numStr.replace(/[.\s]/g, ""), 10);
+    const prefix = raw.slice(0, m.index);
+    const suffix = raw.slice(m.index + numStr.length);
+    if (!isFinite(target) || target <= 2) { el.textContent = raw; return; }
+    const fmt = (n) => n.toLocaleString("pt-BR");
+    el.textContent = prefix + fmt(0) + suffix;
+    const dur = 1200;
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + fmt(Math.round(target * eased)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = raw;
+    };
+    requestAnimationFrame(tick);
+  }
+
+  open(idx) {
+    const opening = this.state.modal == null;
+    if (opening && typeof document !== "undefined") this._lastFocus = document.activeElement;
+    this.setState({ modal: idx });
+    if (typeof document !== "undefined") document.body.style.overflow = "hidden";
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (typeof document === "undefined") return;
+    const was = prevState.modal, now = this.state.modal;
+    if (was === now) return;
+    const d = document.querySelector('[role="dialog"]');
+    if (!d) return;
+    d.scrollTop = 0;
+    if (was == null && now != null) {
+      const btn = d.querySelector('button[aria-label="Fechar"]');
+      if (btn) btn.focus();
+    }
+  }
+
+  close() {
+    this.setState({ modal: null });
+    if (typeof document !== "undefined") document.body.style.overflow = "";
+    const el = this._lastFocus;
+    this._lastFocus = null;
+    if (el && el.focus) requestAnimationFrame(() => el.focus());
+  }
+
+  get campaignId() {
+    const m = String(this.props.donateUrl || "").match(/form=([^&]+)/);
+    return (m && m[1]) || "FUNVKMBZSWK";
+  }
+
+  openDonate(ev, amount, recurring) {
+    if (typeof window !== "undefined" && typeof window.FundraiseUp === "function") {
+      if (ev && ev.preventDefault) ev.preventDefault();
+      const donation = {};
+      if (amount) { donation.amount = amount; donation.currency = "BRL"; }
+      if (recurring) donation.recurring = recurring;
+      const opts = Object.keys(donation).length ? { donation: donation } : {};
+      window.FundraiseUp.openCheckout(this.campaignId, opts);
+    }
+  }
+
+  renderVals() {
+    const exps = this.expeditions;
+    const typeMap = { "44": "Terra", "45": "Água", "46": "Terra", "47": "Água", "48": "Ar", "49": "Terra", "50": "Ar" };
+    const typeColor = { "Terra": "#3f6b4a", "Água": "#2f5f86", "Ar": "#5b4b9a" };
+    const typeTitle = {
+      "Terra": "Expedição de terra — chegamos de carro (região de Belterra).",
+      "Água": "Expedição de água — ação embarcada, a bordo de barco.",
+      "Ar": "Expedição de ar — acesso só por avião monomotor."
+    };
+    const selo = (n) => {
+      const t = typeMap[n];
+      return {
+        type: t, typeLabel: t, typeTitle: typeTitle[t],
+        isTerra: t === "Terra", isAgua: t === "Água", isAr: t === "Ar",
+        typeStyle: "position:absolute; top:14px; left:14px; display:inline-flex; align-items:center; gap:7px; padding:7px 13px 7px 11px; border-radius:999px; font-size:13px; font-weight:700; letter-spacing:0.02em; background:rgba(255,255,255,0.94); box-shadow:0 4px 16px rgba(0,0,0,0.22); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); color:" + typeColor[t] + ";"
+      };
+    };
+
+    const cardBase = "display:flex; flex-direction:column; text-align:left; padding:0; background:#fff; border:1px solid rgba(41,35,92,0.10); border-radius:20px; overflow:hidden; cursor:pointer; font-family:'Inter',sans-serif; box-shadow:0 12px 32px -24px rgba(41,35,92,0.45); transition:transform .18s ease, box-shadow .18s ease;";
+    const items = exps.map((e, idx) => ({
+      ...e,
+      ...selo(e.n),
+      idx,
+      miniStats: e.stats.slice(0, 3),
+      onOpen: () => this.open(idx),
+      cardStyle: cardBase,
+      cardHover: "transform:translateY(-5px); box-shadow:0 28px 54px -26px rgba(41,35,92,0.5);"
+    }));
+
+    const filter = this.state.filter || "all";
+    const counts = { all: exps.length, "Terra": 0, "Água": 0, "Ar": 0 };
+    exps.forEach((e) => { const t = typeMap[e.n]; counts[t] = (counts[t] || 0) + 1; });
+    const filteredItems = filter === "all" ? items : items.filter((it) => it.type === filter);
+    const filtActive = "display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:999px; border:1px solid #29235c; background:#29235c; color:#fff; font-weight:600; font-size:14px; cursor:pointer; font-family:'Inter',sans-serif; transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;";
+    const filtIdle = "display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:999px; border:1px solid rgba(41,35,92,0.16); background:#fff; color:#4a4572; font-weight:600; font-size:14px; cursor:pointer; font-family:'Inter',sans-serif; transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;";
+    const cntActive = "font-size:12px; font-weight:700; padding:1px 8px; border-radius:999px; background:rgba(255,255,255,0.22); color:#fff;";
+    const cntIdle = "font-size:12px; font-weight:700; padding:1px 8px; border-radius:999px; background:rgba(41,35,92,0.07); color:#8a86a8;";
+    const typeFilters = [
+      { key: "all", label: "Todas" },
+      { key: "Terra", label: "Terra" },
+      { key: "Água", label: "Água" },
+      { key: "Ar", label: "Ar" }
+    ].map((f) => ({
+      label: f.label,
+      count: counts[f.key] || 0,
+      active: filter === f.key,
+      isTerra: f.key === "Terra", isAgua: f.key === "Água", isAr: f.key === "Ar",
+      onClick: () => this.setState({ filter: f.key }),
+      style: filter === f.key ? filtActive : filtIdle,
+      hoverStyle: filter === f.key ? "transform:translateY(-1px);" : "border-color:#29235c; color:#29235c; transform:translateY(-1px);",
+      countStyle: filter === f.key ? cntActive : cntIdle
+    }));
+
+
+    const mi = this.state.modal;
+    const navList = filteredItems.map((it) => it.idx);
+    const navLen = navList.length;
+    const navPos = navList.indexOf(mi);
+    const active = mi == null ? null : {
+      ...exps[mi],
+      ...selo(exps[mi].n),
+      photoSrc: "assets/photos/" + exps[mi].n + ".jpg",
+      hasReport: !!exps[mi].reportUrl, noReport: !exps[mi].reportUrl, reportUrl: exps[mi].reportUrl || "#",
+      pos: navPos + 1, total: navLen
+    };
+
+    const donate = this.props.donateUrl ?? "https://ongzoe.org/?form=FUNVKMBZSWK";
+    const tNorm = {
+      card: "position:relative; display:flex; flex-direction:column; background:#fff; border:1px solid rgba(41,35,92,0.12); border-radius:20px; padding:clamp(26px,3vw,34px); transition:transform .18s ease, box-shadow .18s ease;",
+      cardHover: "transform:translateY(-4px); box-shadow:0 20px 44px -24px rgba(41,35,92,0.4);",
+      name: "font-size:12px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; color:#cc5b3e; margin:0;",
+      amount: "font-family:'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight:400; font-size:clamp(30px,4.4vw,42px); line-height:1; color:#29235c; margin:12px 0 4px;",
+      blurb: "font-size:14.5px; line-height:1.55; color:#6a6590; margin:8px 0 24px;",
+      btn: "margin-top:auto; display:inline-block; text-align:center; background:#29235c; color:#fff; font-weight:600; font-size:15px; padding:13px 20px; border-radius:999px; transition:transform .15s ease, background .15s ease;",
+      btnHover: "background:#1e1a45; transform:translateY(-1px); color:#fff;"
+    };
+    const tFeat = {
+      card: "display:flex; flex-direction:column; background:#29235c; color:#fff; border:1px solid #29235c; border-radius:20px; padding:clamp(30px,3.4vw,40px) clamp(26px,3vw,34px); position:relative; box-shadow:0 34px 66px -30px rgba(41,35,92,0.65); transition:transform .18s ease;",
+      cardHover: "transform:translateY(-6px);",
+      name: "font-size:12px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; color:#f4a48c; margin:0;",
+      amount: "font-family:'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight:400; font-size:clamp(30px,4.4vw,42px); line-height:1; color:#fff; margin:12px 0 4px;",
+      blurb: "font-size:14.5px; line-height:1.55; color:rgba(255,255,255,0.85); margin:8px 0 24px;",
+      btn: "margin-top:auto; display:inline-block; text-align:center; background:#cc5b3e; color:#fff; font-weight:700; font-size:15px; padding:14px 20px; border-radius:999px; transition:transform .15s ease, background .15s ease;",
+      btnHover: "background:#b84e33; transform:translateY(-1px); color:#fff;"
+    };
+    const tiers = this.tiers.map((t) => {
+      const v = t.featured ? tFeat : tNorm;
+      const tDonate = t.amt ? (donate + "&amount=" + t.amt + "&currency=BRL&recurring=monthly") : donate;
+      return {
+        ...t, donate: tDonate, onDonate: (ev) => this.openDonate(ev, t.amt, "monthly"), hasBadge: !!t.badge, badge: t.badge || "", hasGift: !!t.gift,
+        cardStyle: v.card, cardHover: v.cardHover, nameStyle: v.name,
+        amountStyle: v.amount, blurbStyle: v.blurb, btnStyle: v.btn, btnHover: v.btnHover
+      };
+    });
+
+
+    const donor = this.state.donor || "novo";
+    const donorNovo = donor === "novo";
+    const donorMensal = donor === "mensal";
+    const segOn = "flex:1; text-align:center; padding:12px 16px; border-radius:999px; border:none; cursor:pointer; font-family:'Inter',sans-serif; font-weight:700; font-size:14px; background:#29235c; color:#fff; transition:background .2s ease, color .2s ease;";
+    const segOff = "flex:1; text-align:center; padding:12px 16px; border-radius:999px; border:none; cursor:pointer; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; background:transparent; color:#6a6590; transition:background .2s ease, color .2s ease;";
+    const eBase = "position:relative; display:flex; flex-direction:column; align-items:center; gap:5px; padding:20px 14px; border-radius:16px; border:1px solid rgba(41,35,92,0.14); background:#fff; cursor:pointer; text-decoration:none; transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;";
+    const eGift = "position:relative; display:flex; flex-direction:column; align-items:center; gap:5px; padding:20px 14px; border-radius:16px; border:2px solid #cc5b3e; background:#fff7f4; cursor:pointer; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;";
+    const extras = [
+      { v: "R$ 150", gift: false, amt: 150 },
+      { v: "R$ 250", gift: true, amt: 250 },
+      { v: "R$ 500", gift: true, amt: 500 },
+      { v: "Outro", gift: false, amt: null }
+    ].map((x) => ({ ...x, donate: x.amt ? (donate + "&amount=" + x.amt + "&currency=BRL&recurring=once") : donate, onDonate: (ev) => this.openDonate(ev, x.amt, "once"), cardStyle: x.gift ? eGift : eBase, hoverStyle: x.gift ? "transform:translateY(-3px); box-shadow:0 16px 32px -18px rgba(204,91,62,0.55);" : "transform:translateY(-3px); border-color:#29235c; box-shadow:0 14px 28px -18px rgba(41,35,92,0.4);" }));
+
+    return {
+      semester: this.semester,
+      features: this.features.map((f, i) => ({ ...f, i: i + 1 })),
+      voices: this.voices,
+      partners: this.partners,
+      tiers,
+      items,
+      filteredItems,
+      typeFilters,
+      active,
+      modalImg: active ? React.createElement("img", {
+        src: active.photoSrc,
+        alt: active.name + " — " + active.place,
+        style: { width: "100%", height: "clamp(200px, 32vw, 300px)", objectFit: "cover", display: "block" }
+      }) : null,
+      modalOpen: mi != null,
+      close: () => this.close(),
+      stop: (ev) => ev.stopPropagation(),
+      modalPrev: (ev) => { ev.stopPropagation(); if (navLen) this.open(navList[(navPos - 1 + navLen) % navLen]); },
+      modalNext: (ev) => { ev.stopPropagation(); if (navLen) this.open(navList[(navPos + 1) % navLen]); },
+      donorNovo, donorMensal,
+      setNovo: () => this.setState({ donor: "novo" }),
+      setMensal: () => this.setState({ donor: "mensal" }),
+      segNovoStyle: donorNovo ? segOn : segOff,
+      segMensalStyle: donorMensal ? segOn : segOff,
+      extras,
+      donateUrl: donate,
+      donateMonthlyUrl: donate + "&recurring=monthly",
+      onDonateGeneric: (ev) => this.openDonate(ev, null, null),
+      onDonateMonthly: (ev) => this.openDonate(ev, null, "monthly")
+    };
+  }
+}
+</script>
+</body>
+</html>
