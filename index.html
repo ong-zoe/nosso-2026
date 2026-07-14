@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Veja o que a sua doação fez na Amazônia em 2026</title>
-<meta name="description" content="7 expedições, +5.000 atendimentos e 165 cirurgias no 1º semestre. Veja o impacto e garanta a próxima expedição.">
+<title>Zoé — Saúde e esperança para a Amazônia</title>
+<meta name="description" content="A Zoé leva saúde especializada a comunidades ribeirinhas e indígenas remotas da Amazônia. Conheça as expedições e torne-se doador mensal.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nosso-2026.vercel.app/">
-<meta property="og:title" content="Veja o que a sua doação fez na Amazônia em 2026">
-<meta property="og:description" content="7 expedições, +5.000 atendimentos e 165 cirurgias no 1º semestre. Veja o impacto e garanta a próxima expedição.">
+<meta property="og:title" content="Zoé — Saúde e esperança para a Amazônia">
+<meta property="og:description" content="Leve saúde a comunidades remotas da Amazônia. Torne-se doador mensal da Zoé.">
 <meta property="og:image" content="https://nosso-2026.vercel.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Equipe da Zoé e comunidade Wai-Wai em frente à Casa Grande da Aldeia Mapuera.">
+<meta property="og:image:alt" content="Expedição da Zoé na floresta amazônica.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Veja o que a sua doação fez na Amazônia em 2026">
-<meta name="twitter:description" content="7 expedições, +5.000 atendimentos e 165 cirurgias no 1º semestre. Veja o impacto e garanta a próxima expedição.">
+<meta name="twitter:title" content="Zoé — Saúde e esperança para a Amazônia">
+<meta name="twitter:description" content="Leve saúde a comunidades remotas da Amazônia. Torne-se doador mensal da Zoé.">
 <meta name="twitter:image" content="https://nosso-2026.vercel.app/assets/og-image.jpg">
 <meta name="theme-color" content="#29235c">
 <script src="./support.js"></script>
@@ -147,7 +147,7 @@
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(24,20,56,0.12) 0%, rgba(24,20,56,0.15) 42%, rgba(24,20,56,0.9) 100%);"></div>
     <div style="position: absolute; inset: 0; display: flex; align-items: flex-end;">
       <div style="width: 100%; max-width: 1180px; margin: 0 auto; padding: clamp(24px, 5vw, 52px) clamp(20px, 5vw, 64px);">
-        <p class="reveal" data-reveal="" style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #f9c3b1; font-weight: 700; margin: 0 0 12px; text-shadow: 0 2px 16px rgba(0,0,0,0.6);">1º semestre de 2026</p>
+        <p class="reveal" data-reveal="" style="display: inline-block; font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #fff; font-weight: 700; margin: 0 0 14px; padding: 8px 16px 8px 18px; border-radius: 999px; background: rgba(41,35,92,0.78); border: 1px solid rgba(249,195,177,0.45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);">1º semestre de 2026</p>
         <p class="reveal" data-reveal="" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4.6vw, 46px); line-height: 1.06; color: #fff; margin: 0; max-width: 18ch; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,0.45);">Sete expedições. Um semestre inteiro na Amazônia.</p>
       </div>
     </div>
@@ -294,19 +294,33 @@
         <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Histórias que o seu apoio escreveu</p>
         <h2 id="vozes-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0; text-wrap: balance;">Vozes de quem esteve lá.</h2>
       </div>
-      <div class="reveal" data-reveal="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(18px, 2.5vw, 28px);">
-        <sc-for list="{{ voices }}" as="v" hint-placeholder-count="3">
-          <figure style="margin: 0; background: #fff; border: 1px solid rgba(41,35,92,0.10); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
-            <img src="assets/photos/{{ v.photo }}-800.jpg" srcset="assets/photos/{{ v.photo }}-400.jpg 400w, assets/photos/{{ v.photo }}-800.jpg 800w" sizes="(max-width: 640px) 92vw, 360px" alt="{{ v.alt }}" loading="lazy" style="width: 100%; height: 200px; object-fit: cover;">
-            <div style="padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; flex: 1;">
-              <blockquote style="margin: 0; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-style: italic; font-size: clamp(19px, 2.4vw, 23px); line-height: 1.32; color: #29235c;">“{{ v.q }}”</blockquote>
-              <figcaption style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(41,35,92,0.10);">
-                <div style="font-weight: 600; font-size: 14.5px; color: #29235c;">{{ v.who }}</div>
-                <div style="font-size: 13px; color: #8a86a8; margin-top: 3px;">{{ v.ctx }}</div>
-              </figcaption>
-            </div>
-          </figure>
-        </sc-for>
+      <div class="reveal" data-reveal="" style="display: flex; flex-wrap: wrap; gap: clamp(18px, 2.5vw, 28px); align-items: stretch;">
+        <div style="flex: 1.7 1 520px; min-width: min(100%, 320px); position: relative; border-radius: 20px; overflow: hidden; background: #29235c; aspect-ratio: 16 / 9;">
+          <sc-if value="{{ videoOn }}" hint-placeholder-val="{{ false }}">{{ videoPlayer }}</sc-if>
+          <sc-if value="{{ videoPosterOn }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ playVideo }}" aria-label="Assistir depoimento em vídeo, cerca de 40 segundos, com legendas" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: none; display: block;">
+              <img src="https://i.ytimg.com/vi/bvRx4ogIemA/maxresdefault.jpg" alt="Capa do vídeo de depoimento" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+              <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(41,35,92,0.72), rgba(41,35,92,0.10) 55%);"></span>
+              <span aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: clamp(64px, 8vw, 84px); height: clamp(64px, 8vw, 84px); border-radius: 999px; background: #cc5b3e; display: flex; align-items: center; justify-content: center; animation: zoePulse 2.6s ease-out infinite;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
+              </span>
+              <span style="position: absolute; left: clamp(18px, 3vw, 28px); right: clamp(18px, 3vw, 28px); bottom: clamp(16px, 2.5vw, 24px); text-align: left; color: #fff; display: flex; flex-direction: column; gap: 4px;">
+                <span style="font-weight: 600; font-size: clamp(15px, 2vw, 18px);">“Saí com esperança.” — assista ao depoimento</span>
+                <span style="font-size: 13px; color: rgba(255,255,255,0.78);">Paciente atendida no Rio Arapiuns · ≈ 40 segundos · com legendas</span>
+                <sc-if value="{{ videoMissing }}" hint-placeholder-val="{{ false }}">
+                  <span style="font-size: 12.5px; color: #f4a48c; font-family: ui-monospace, monospace;">vídeo ainda não configurado — adicione o link no painel de ajustes</span>
+                </sc-if>
+              </span>
+            </button>
+          </sc-if>
+        </div>
+        <figure style="flex: 1 1 300px; min-width: min(100%, 280px); margin: 0; background: #fff; border: 1px solid rgba(41,35,92,0.10); border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+          <blockquote style="margin: 0; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-style: italic; font-size: clamp(19px, 2.4vw, 23px); line-height: 1.32; color: #29235c;">“Esse modelo de trabalho está cuidando do território, do meio ambiente, da cultura e das relações sociais desses povos.”</blockquote>
+          <figcaption style="padding-top: 16px; border-top: 1px solid rgba(41,35,92,0.10);">
+            <div style="font-weight: 600; font-size: 14.5px; color: #29235c;">Dr. Erik Jennings</div>
+            <div style="font-size: 13px; color: #8a86a8; margin-top: 3px;">Neurocirurgião · Conselho da Zoé</div>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -318,6 +332,12 @@
         <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Faça parte</p>
         <h2 id="planos-titulo" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0 0 16px; text-wrap: balance;">Como você quer apoiar hoje?</h2>
         <p style="font-size: clamp(15px, 2vw, 17px); line-height: 1.55; color: #6a6590; margin: 0;">Se você já doa mensalmente, temos um caminho especial para você. Escolha abaixo.</p>
+      </div>
+
+      <!-- GOAL METER — FundraiseUp Element (meta das 6 expedições do ano) -->
+      <div class="reveal" data-reveal="" style="max-width: 720px; margin: 0 auto clamp(36px, 4.5vw, 48px); background: #f6f3ed; border: 1px solid rgba(41,35,92,0.10); border-radius: 20px; padding: clamp(22px, 3vw, 32px);">
+        <p style="font-size: clamp(11px, 3vw, 12.5px); letter-spacing: 0.22em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 12px; text-align: center;">Meta do 2º semestre · As próximas 6 expedições</p>
+        <a href="#XRAEFVKP" style="display: none"></a>
       </div>
 
       <div class="reveal" data-reveal="" role="tablist" aria-label="Tipo de doador" style="display: flex; gap: 4px; max-width: 470px; margin: 0 auto clamp(32px, 4vw, 44px); padding: 5px; background: #f2eee7; border: 1px solid rgba(41,35,92,0.10); border-radius: 999px;">
@@ -368,7 +388,7 @@
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
             </span>
             <div style="text-align: left;">
-              <div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2.7vw, 23px); line-height: 1.18; color: #29235c;">Doe <strong style="color: #cc5b3e; font-weight: 400;">R$ 200 ou mais</strong> e ganhe o boné exclusivo da Zoé.</div>
+              <div style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2.7vw, 23px); line-height: 1.18; color: #29235c;">Doe <strong style="color: #cc5b3e; font-weight: 400;">R$ 250 ou mais</strong> e ganhe o boné exclusivo da Zoé.</div>
               <div style="font-size: 13.5px; line-height: 1.4; color: #a06a58; margin-top: 5px; font-weight: 500;">Um agradecimento que você veste — e leva a Amazônia com você por onde for.</div>
             </div>
           </div>
@@ -439,9 +459,19 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900},&quot;donateUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://ongzoe.org/?form=FUNVKMBZSWK&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Doação&quot;,&quot;label&quot;:&quot;Link base FundraiseUp (?form=…)&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900},&quot;donateUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://ongzoe.org/?form=FUNVKMBZSWK&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Doação&quot;,&quot;label&quot;:&quot;Link base FundraiseUp (?form=…)&quot;},&quot;videoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://youtu.be/bvRx4ogIemA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vídeo de depoimento&quot;,&quot;label&quot;:&quot;Link do vídeo (YouTube, Vimeo ou .mp4)&quot;}}">
 class Component extends DCLogic {
-  state = { modal: null, donor: "novo", filter: "all" };
+  state = { modal: null, donor: "novo", filter: "all", videoOn: false, videoMissing: false };
+
+  get videoEmbed() {
+    const raw = (this.props.videoUrl ?? "https://youtu.be/bvRx4ogIemA").trim();
+    if (!raw) return null;
+    let m = raw.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);
+    if (m) return { type: "iframe", url: "https://www.youtube-nocookie.com/embed/" + m[1] + "?autoplay=1&rel=0" };
+    m = raw.match(/vimeo\.com\/(\d+)/);
+    if (m) return { type: "iframe", url: "https://player.vimeo.com/video/" + m[1] + "?autoplay=1" };
+    return { type: "file", url: raw };
+  }
 
   get expeditions() {
     return [
@@ -946,6 +976,18 @@ class Component extends DCLogic {
       semester: this.semester,
       features: this.features.map((f, i) => ({ ...f, i: i + 1 })),
       voices: this.voices,
+      videoPosterOn: !this.state.videoOn,
+      videoOn: this.state.videoOn,
+      videoPlayer: (this.state.videoOn && this.videoEmbed) ? (
+        this.videoEmbed.type === "iframe"
+          ? React.createElement("iframe", { src: this.videoEmbed.url, title: "Depoimento em vídeo de paciente atendida pela Zoé", allow: "autoplay; fullscreen; picture-in-picture", allowFullScreen: true, style: { position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 } })
+          : React.createElement("video", { src: this.videoEmbed.url, controls: true, autoPlay: true, playsInline: true, style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", background: "#000" } })
+      ) : null,
+      videoMissing: this.state.videoMissing,
+      playVideo: () => {
+        if (this.videoEmbed) this.setState({ videoOn: true, videoMissing: false });
+        else this.setState({ videoMissing: true });
+      },
       partners: this.partners,
       tiers,
       items,
