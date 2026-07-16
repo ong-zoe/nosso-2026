@@ -1010,13 +1010,19 @@ class Component extends DCLogic {
     return (m && m[1]) || "FUNVKMBZSWK";
   }
 
+  // Tag para identificar doações vindas desta campanha (2º semestre de 2026).
+  get campaignTag() {
+    return "2semestre2026";
+  }
+
   openDonate(ev, amount, recurring) {
     if (typeof window !== "undefined" && typeof window.FundraiseUp === "function") {
       if (ev && ev.preventDefault) ev.preventDefault();
       const donation = {};
       if (amount) { donation.amount = amount; donation.currency = "BRL"; }
       if (recurring) donation.recurring = recurring;
-      const opts = Object.keys(donation).length ? { donation: donation } : {};
+      const opts = { customFields: { campaign: this.campaignTag } };
+      if (Object.keys(donation).length) opts.donation = donation;
       window.FundraiseUp.openCheckout(this.campaignId, opts);
     }
   }
@@ -1106,6 +1112,7 @@ class Component extends DCLogic {
     params.set("email", (this.state.dfEmail || "").trim());
     params.set("telefone", (this.state.dfTel || "").trim());
     if (df.amount) { params.set("valor", String(df.amount)); params.set("auto", "1"); }
+    params.set("campaign", this.campaignTag);
     try {
       const cur = new URLSearchParams(window.location.search);
       ["utm_source", "utm_medium", "utm_campaign"].forEach((k) => {
@@ -1145,7 +1152,7 @@ class Component extends DCLogic {
       const parts = nome.split(/\s+/).filter(Boolean);
       const supporter = { firstName: parts[0] || nome, email: email };
       if (parts.length > 1) supporter.lastName = parts.slice(1).join(" ");
-      const opts = { supporter: supporter, customFields: { phone: tel } };
+      const opts = { supporter: supporter, customFields: { phone: tel, campaign: this.campaignTag } };
       if (Object.keys(donation).length) opts.donation = donation;
       this.setState({ dfBusy: true });
       window.FundraiseUp.openCheckout(this.campaignId, opts);
