@@ -889,6 +889,7 @@ class Component extends DCLogic {
 
   componentDidMount() {
     if (typeof window === "undefined") return;
+    if (typeof this._ensureUtmCampaign === "function") this._ensureUtmCampaign();
     this._onKey = (ev) => {
       const dfOpen = this.state.df != null;
       const expOpen = this.state.modal != null;
@@ -1013,6 +1014,19 @@ class Component extends DCLogic {
   // utm_campaign padrão para doações vindas desta campanha (2º semestre de 2026).
   get campaignTag() {
     return "2semestre2026";
+  }
+
+  // Se a página foi aberta sem utm_campaign na URL, injeta o padrão via
+  // history.replaceState (sem recarregar/navegar), para que a captura nativa
+  // de UTM do FundraiseUp (e o encaminhamento de UTM do PIX) também vejam a tag.
+  _ensureUtmCampaign() {
+    try {
+      const url = new URL(window.location.href);
+      if (!url.searchParams.get("utm_campaign")) {
+        url.searchParams.set("utm_campaign", this.campaignTag);
+        window.history.replaceState(window.history.state, "", url.toString());
+      }
+    } catch (e) {}
   }
 
   openDonate(ev, amount, recurring) {
