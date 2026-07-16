@@ -83,6 +83,8 @@
       padding-top: 16px !important;
     }
     .hero-stats-lead { grid-column: 1 / -1 !important; margin-bottom: 0 !important; }
+    /* Badge wraps below the text on mobile, so the arrow points up at it instead of left into empty space */
+    .hero-nudge { transform: rotate(90deg); animation: zoeNudgeUp 1.4s ease-in-out infinite !important; }
     .hero-stats [data-countup] { font-size: 20px !important; }
     .hero-stats [data-countup] + div { font-size: 10px !important; margin-top: 3px !important; letter-spacing: 0.04em !important; }
   }
@@ -107,6 +109,7 @@
   @keyframes zoeBob { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-7px) rotate(6deg); } }
   @keyframes zoePulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,91,62,0.45); } 70% { box-shadow: 0 0 0 16px rgba(204,91,62,0); } }
   @keyframes zoeNudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
+  @keyframes zoeNudgeUp { 0%, 100% { transform: rotate(90deg) translateX(0); } 50% { transform: rotate(90deg) translateX(-6px); } }
   ::selection { background: #29235c; color: #f6f3ed; }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s cubic-bezier(.16,.8,.3,1), transform .75s cubic-bezier(.16,.8,.3,1); }
   .reveal.in { opacity: 1; transform: none; }
@@ -150,7 +153,7 @@
         <div class="hero-stats-lead" style="flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 4px;">
           <p style="margin: 0; font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(20px, 3.4vw, 30px); line-height: 1.2; color: #fff;">Este ano já fizemos:</p>
           <div style="display: inline-flex; align-items: center; gap: 10px;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f4a48c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; animation: zoeNudge 1.4s ease-in-out infinite;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 5 5 12 12 19"></polyline></svg>
+            <svg class="hero-nudge" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f4a48c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; animation: zoeNudge 1.4s ease-in-out infinite;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 5 5 12 12 19"></polyline></svg>
             <span style="display: inline-block; background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(13px, 2vw, 15.5px); line-height: 1.25; padding: 9px 16px; border-radius: 12px; transform: rotate(-2deg); box-shadow: 0 10px 26px -10px rgba(204,91,62,0.7);">E estamos só<br>no 1º semestre!</span>
           </div>
         </div>
@@ -1155,7 +1158,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const exps = this.expeditions;
+    const exps = this.expeditions.slice().reverse();
     const typeMap = { "44": "Terra", "45": "Água", "46": "Terra", "47": "Água", "48": "Ar", "49": "Terra", "50": "Ar" };
     const typeColor = { "Terra": "#3f6b4a", "Água": "#2f5f86", "Ar": "#5b4b9a" };
     const typeTitle = {
