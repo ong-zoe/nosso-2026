@@ -379,6 +379,44 @@
       <button type="button" aria-label="Fechar" onClick="{{ closeZoom }}" style="position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #29235c; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
     </div>
   </sc-if>
+  <sc-if value="{{ dfOpen }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-labelledby="df-title" data-df-dialog="" onClick="{{ dfClose }}" style="position: fixed; inset: 0; z-index: 130; display: flex; align-items: flex-start; justify-content: center; padding: clamp(10px, 4vw, 48px); background: rgba(24,20,56,0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); overflow-y: auto; animation: zoeBackdrop .25s ease both;">
+      <div onClick="{{ dfStop }}" style="width: 100%; max-width: 460px; margin: auto; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.55); animation: zoeModal .35s cubic-bezier(.16,.8,.3,1) both; display: flex; flex-direction: column; max-height: calc(100vh - clamp(20px, 8vw, 96px));">
+        <div style="position: relative; padding: clamp(26px, 5vw, 32px) clamp(24px, 5vw, 34px) clamp(20px, 3vw, 24px); background: #29235c; color: #fff; flex-shrink: 0;">
+          <button type="button" aria-label="Fechar" onClick="{{ dfClose }}" style="position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.16); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .15s ease, transform .2s ease;" style-hover="background: rgba(255,255,255,0.3); transform: rotate(90deg);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+          <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: #f4a48c; margin: 0 0 8px;">Falta pouco</p>
+          <h2 id="df-title" style="font-family: 'Cooper BT', 'CooperBT', 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(22px, 4.6vw, 28px); line-height: 1.12; margin: 0;">{{ dfSummary }}</h2>
+        </div>
+        <div style="padding: clamp(22px, 4vw, 28px) clamp(24px, 5vw, 34px) clamp(24px, 5vw, 32px); display: flex; flex-direction: column; gap: 15px; overflow-y: auto;">
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-size: 13px; font-weight: 600; color: #29235c;">Nome completo</span>
+            <input data-df-first="" type="text" value="{{ dfNome }}" onChange="{{ dfSetNome }}" placeholder="Seu nome e sobrenome" autocomplete="name" aria-label="Nome completo" style="{{ dfNomeStyle }}" style-focus="border-color:#29235c; box-shadow:0 0 0 3px rgba(41,35,92,0.12);">
+            <sc-if value="{{ dfErrNome }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 12.5px; color: #cc3a2e; font-weight: 500;">{{ dfErrNome }}</span></sc-if>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-size: 13px; font-weight: 600; color: #29235c;">E-mail</span>
+            <input type="email" value="{{ dfEmail }}" onChange="{{ dfSetEmail }}" placeholder="voce@email.com" autocomplete="email" inputmode="email" aria-label="E-mail" style="{{ dfEmailStyle }}" style-focus="border-color:#29235c; box-shadow:0 0 0 3px rgba(41,35,92,0.12);">
+            <sc-if value="{{ dfErrEmail }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 12.5px; color: #cc3a2e; font-weight: 500;">{{ dfErrEmail }}</span></sc-if>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-size: 13px; font-weight: 600; color: #29235c;">Telefone / WhatsApp</span>
+            <input type="tel" value="{{ dfTel }}" onChange="{{ dfSetTel }}" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" aria-label="Telefone ou WhatsApp" style="{{ dfTelStyle }}" style-focus="border-color:#29235c; box-shadow:0 0 0 3px rgba(41,35,92,0.12);">
+            <sc-if value="{{ dfErrTel }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 12.5px; color: #cc3a2e; font-weight: 500;">{{ dfErrTel }}</span></sc-if>
+          </label>
+          <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 4px;">
+            <sc-if value="{{ dfShowPix }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ dfPayPix }}" disabled="{{ dfBusy }}" style="{{ dfPixStyle }}" style-hover="transform: translateY(-1px); background:#00997a; color:#fff;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 4 4-4 4-4-4 4-4Z"></path><path d="m12 14 4 4-4 4-4-4 4-4Z"></path><path d="m2 12 4-4 4 4-4 4-4-4Z"></path><path d="m14 12 4-4 4 4-4 4-4-4Z"></path></svg>{{ dfPixLabel }}</button>
+            </sc-if>
+            <button type="button" onClick="{{ dfPayCard }}" disabled="{{ dfBusy }}" style="{{ dfCardStyle }}" style-hover="transform: translateY(-1px);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"></rect><path d="M2 10h20"></path></svg>{{ dfCardLabel }}</button>
+            <sc-if value="{{ dfRecurring }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ dfEnablePix }}" style="background: none; border: none; padding: 4px; font-family:'Inter',sans-serif; font-size: 13.5px; color: #6a6590; cursor: pointer; text-align: center;">Doações mensais são no cartão. <span style="color:#cc5b3e; font-weight:600; border-bottom:1px solid rgba(204,91,62,0.4);">Prefere doar uma vez no PIX?</span></button>
+            </sc-if>
+          </div>
+          <p style="font-size: 12px; color: #8a86a8; text-align: center; line-height: 1.5; margin: 2px 0 0;">Seus dados são usados apenas para concluir e confirmar a sua doação. Pagamento seguro.</p>
+        </div>
+      </div>
+    </div>
+  </sc-if>
   <section id="historias" aria-labelledby="vozes-titulo" style="background: #f6f3ed; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px) clamp(40px, 5vw, 56px);">
     <div style="max-width: 1180px; margin: 0 auto;">
       <div class="reveal" data-reveal="" style="max-width: 680px; margin-bottom: clamp(36px, 5vw, 52px);">
@@ -849,12 +887,16 @@ class Component extends DCLogic {
   componentDidMount() {
     if (typeof window === "undefined") return;
     this._onKey = (ev) => {
-      if (this.state.modal == null) return;
-      if (ev.key === "Escape") { this.close(); return; }
+      const dfOpen = this.state.df != null;
+      const expOpen = this.state.modal != null;
+      if (!dfOpen && !expOpen) return;
+      if (ev.key === "Escape") { if (dfOpen) this.closeDonateForm(); else this.close(); return; }
       if (ev.key === "Tab") {
-        const dlg = document.querySelector('[role="dialog"]');
+        const dlg = dfOpen
+          ? document.querySelector('[data-df-dialog]')
+          : document.querySelector('[role="dialog"]:not([data-df-dialog])');
         if (!dlg) return;
-        const f = dlg.querySelectorAll('a[href], button:not([disabled])');
+        const f = dlg.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select, textarea');
         if (!f.length) return;
         const first = f[0], last = f[f.length - 1];
         if (ev.shiftKey && document.activeElement === first) { ev.preventDefault(); last.focus(); }
@@ -928,16 +970,27 @@ class Component extends DCLogic {
     if (typeof document !== "undefined") document.body.style.overflow = "hidden";
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if (typeof document === "undefined") return;
-    const was = prevState.modal, now = this.state.modal;
-    if (was === now) return;
-    const d = document.querySelector('[role="dialog"]');
-    if (!d) return;
-    d.scrollTop = 0;
-    if (was == null && now != null) {
-      const btn = d.querySelector('button[aria-label="Fechar"]');
-      if (btn) btn.focus();
+    // The runtime only forwards prevProps to componentDidUpdate, so track the
+    // previous state we care about on the instance.
+    const wasModal = this._pModal, nowModal = this.state.modal;
+    const wasDf = this._pDf, nowDf = this.state.df;
+    this._pModal = nowModal;
+    this._pDf = nowDf;
+    if (wasModal !== nowModal) {
+      const d = document.querySelector('[role="dialog"]:not([data-df-dialog])');
+      if (d) {
+        d.scrollTop = 0;
+        if (wasModal == null && nowModal != null) {
+          const btn = d.querySelector('button[aria-label="Fechar"]');
+          if (btn) btn.focus();
+        }
+      }
+    }
+    if (wasDf == null && nowDf != null) {
+      const inp = document.querySelector('[data-df-first]');
+      if (inp && inp.focus) inp.focus();
     }
   }
 
@@ -962,6 +1015,142 @@ class Component extends DCLogic {
       if (recurring) donation.recurring = recurring;
       const opts = Object.keys(donation).length ? { donation: donation } : {};
       window.FundraiseUp.openCheckout(this.campaignId, opts);
+    }
+  }
+
+  // ---- Pre-checkout donor form (capture data + route by payment method) ----
+  _donorStore(read, data) {
+    try {
+      if (typeof sessionStorage === "undefined") return {};
+      if (read) return JSON.parse(sessionStorage.getItem("zoeDonor") || "{}") || {};
+      sessionStorage.setItem("zoeDonor", JSON.stringify(data || {}));
+    } catch (e) {}
+    return {};
+  }
+
+  _saveDonor(patch) {
+    const cur = { nome: this.state.dfNome || "", email: this.state.dfEmail || "", tel: this.state.dfTel || "" };
+    this._donorStore(false, Object.assign(cur, patch || {}));
+  }
+
+  maskPhone(v) {
+    const d = String(v == null ? "" : v).replace(/\D/g, "").slice(0, 11);
+    if (!d) return "";
+    if (d.length <= 2) return "(" + d;
+    if (d.length <= 6) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+    if (d.length <= 10) return "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
+    return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+  }
+
+  openDonateForm(ev, amount, recurring) {
+    // Without the widget we keep legacy behaviour: let the anchor href navigate
+    // (graceful fallback — no preventDefault, no form).
+    if (typeof window === "undefined" || typeof window.FundraiseUp !== "function") return;
+    try {
+      if (ev && ev.preventDefault) ev.preventDefault();
+      if (typeof document !== "undefined") this._lastFocus = document.activeElement;
+      const saved = this._donorStore(true);
+      this.setState({
+        df: { amount: amount || null, recurring: recurring || null },
+        dfNome: this.state.dfNome || saved.nome || "",
+        dfEmail: this.state.dfEmail || saved.email || "",
+        dfTel: this.state.dfTel || saved.tel || "",
+        dfErr: {}, dfBusy: false
+      });
+      if (typeof document !== "undefined") document.body.style.overflow = "hidden";
+    } catch (e) {
+      // Anything unexpected → fall through to plain checkout (no prefill).
+      try { this.openDonate(ev, amount, recurring); } catch (e2) {}
+    }
+  }
+
+  closeDonateForm() {
+    this.setState({ df: null, dfBusy: false });
+    if (typeof document !== "undefined") document.body.style.overflow = "";
+    const el = this._lastFocus;
+    this._lastFocus = null;
+    if (el && el.focus) requestAnimationFrame(() => el.focus());
+  }
+
+  dfEnablePix() {
+    const df = this.state.df || {};
+    this.setState({ df: { amount: df.amount || null, recurring: null } });
+  }
+
+  dfSetNome(ev) { const v = ev.target.value; this.setState({ dfNome: v }); this._saveDonor({ nome: v }); }
+  dfSetEmail(ev) { const v = ev.target.value; this.setState({ dfEmail: v }); this._saveDonor({ email: v }); }
+  dfSetTel(ev) { const v = this.maskPhone(ev.target.value); this.setState({ dfTel: v }); this._saveDonor({ tel: v }); }
+
+  _validateDonor() {
+    const nome = (this.state.dfNome || "").trim();
+    const email = (this.state.dfEmail || "").trim();
+    const tel = (this.state.dfTel || "").trim();
+    const digits = tel.replace(/\D/g, "");
+    const err = {};
+    if (!nome) err.nome = "Digite seu nome completo.";
+    if (!email) err.email = "Digite seu e-mail.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) err.email = "Digite um e-mail válido.";
+    if (!tel) err.tel = "Digite seu WhatsApp com DDD.";
+    else if (digits.length < 10 || digits.length > 11) err.tel = "Telefone incompleto — inclua o DDD.";
+    this.setState({ dfErr: err });
+    return Object.keys(err).length === 0;
+  }
+
+  _buildPixUrl() {
+    const df = this.state.df || {};
+    const params = new URLSearchParams();
+    params.set("nome", (this.state.dfNome || "").trim());
+    params.set("email", (this.state.dfEmail || "").trim());
+    params.set("telefone", (this.state.dfTel || "").trim());
+    if (df.amount) { params.set("valor", String(df.amount)); params.set("auto", "1"); }
+    try {
+      const cur = new URLSearchParams(window.location.search);
+      ["utm_source", "utm_medium", "utm_campaign"].forEach((k) => {
+        const val = cur.get(k);
+        if (val) params.set(k, val);
+      });
+    } catch (e) {}
+    return "https://ongzoe.org/pix?" + params.toString();
+  }
+
+  payWithPix() {
+    if (this.state.dfBusy) return;
+    if (!this._validateDonor()) return;
+    this._donorStore(false, {
+      nome: (this.state.dfNome || "").trim(),
+      email: (this.state.dfEmail || "").trim(),
+      tel: (this.state.dfTel || "").trim()
+    });
+    const url = this._buildPixUrl();
+    this.setState({ dfBusy: true });
+    window.location.href = url;
+  }
+
+  payWithCard() {
+    if (this.state.dfBusy) return;
+    if (!this._validateDonor()) return;
+    const nome = (this.state.dfNome || "").trim();
+    const email = (this.state.dfEmail || "").trim();
+    const tel = (this.state.dfTel || "").trim();
+    this._donorStore(false, { nome: nome, email: email, tel: tel });
+    const df = this.state.df || {};
+    try {
+      if (typeof window === "undefined" || typeof window.FundraiseUp !== "function") throw new Error("FundraiseUp indisponível");
+      const donation = {};
+      if (df.amount) { donation.amount = df.amount; donation.currency = "BRL"; }
+      if (df.recurring) donation.recurring = df.recurring;
+      const parts = nome.split(/\s+/).filter(Boolean);
+      const supporter = { firstName: parts[0] || nome, email: email };
+      if (parts.length > 1) supporter.lastName = parts.slice(1).join(" ");
+      const opts = { supporter: supporter, customFields: { phone: tel } };
+      if (Object.keys(donation).length) opts.donation = donation;
+      this.setState({ dfBusy: true });
+      window.FundraiseUp.openCheckout(this.campaignId, opts);
+      this.closeDonateForm();
+    } catch (e) {
+      // Graceful fallback: plain checkout without prefill (never rethrow).
+      this.closeDonateForm();
+      try { this.openDonate(null, df.amount, df.recurring); } catch (e2) {}
     }
   }
 
@@ -1060,7 +1249,7 @@ class Component extends DCLogic {
       const v = t.featured ? tFeat : tNorm;
       const tDonate = t.amt ? (donate + "&amount=" + t.amt + "&currency=BRL&recurring=monthly") : donate;
       return {
-        ...t, donate: tDonate, onDonate: (ev) => this.openDonate(ev, t.amt, "monthly"), hasBadge: !!t.badge, badge: t.badge || "", hasGift: !!t.gift,
+        ...t, donate: tDonate, onDonate: (ev) => this.openDonateForm(ev, t.amt, "monthly"), hasBadge: !!t.badge, badge: t.badge || "", hasGift: !!t.gift,
         cardStyle: v.card, cardHover: v.cardHover, nameStyle: v.name,
         amountStyle: v.amount, blurbStyle: v.blurb, btnStyle: v.btn, btnHover: v.btnHover
       };
@@ -1079,7 +1268,28 @@ class Component extends DCLogic {
       { v: "R$ 250", gift: true, amt: 250 },
       { v: "R$ 500", gift: true, amt: 500 },
       { v: "Outro", gift: false, amt: null }
-    ].map((x) => ({ ...x, donate: x.amt ? (donate + "&amount=" + x.amt + "&currency=BRL&recurring=once") : donate, onDonate: (ev) => this.openDonate(ev, x.amt, "once"), cardStyle: x.gift ? eGift : eBase, hoverStyle: x.gift ? "transform:translateY(-3px); box-shadow:0 16px 32px -18px rgba(204,91,62,0.55);" : "transform:translateY(-3px); border-color:#29235c; box-shadow:0 14px 28px -18px rgba(41,35,92,0.4);" }));
+    ].map((x) => ({ ...x, donate: x.amt ? (donate + "&amount=" + x.amt + "&currency=BRL&recurring=once") : donate, onDonate: (ev) => this.openDonateForm(ev, x.amt, "once"), cardStyle: x.gift ? eGift : eBase, hoverStyle: x.gift ? "transform:translateY(-3px); box-shadow:0 16px 32px -18px rgba(204,91,62,0.55);" : "transform:translateY(-3px); border-color:#29235c; box-shadow:0 14px 28px -18px rgba(41,35,92,0.4);" }));
+
+    const df = this.state.df;
+    const dfOpen = df != null;
+    const dfErr = this.state.dfErr || {};
+    const dfBusy = !!this.state.dfBusy;
+    // "once" is a one-time donation in FundraiseUp; only a real frequency
+    // (e.g. "monthly") counts as recurring, and PIX is hidden only for those.
+    const dfRecurring = !!(df && df.recurring && df.recurring !== "once");
+    const dfShowPix = dfOpen && !dfRecurring;
+    const fmtBRL = (n) => "R$ " + Number(n).toLocaleString("pt-BR");
+    let dfSummary = "Doação — você escolhe o valor";
+    if (df) {
+      if (df.amount && df.recurring === "monthly") dfSummary = "Doar " + fmtBRL(df.amount) + "/mês";
+      else if (df.amount) dfSummary = "Doar " + fmtBRL(df.amount);
+      else if (df.recurring === "monthly") dfSummary = "Doação mensal — você escolhe o valor";
+    }
+    const inpBase = "font-family:'Inter',sans-serif; font-size:15px; color:#29235c; padding:12px 14px; border-radius:12px; border:1.5px solid rgba(41,35,92,0.18); background:#fbfaf7; outline:none; width:100%; box-sizing:border-box; transition:border-color .15s ease, box-shadow .15s ease;";
+    const inpErrS = "font-family:'Inter',sans-serif; font-size:15px; color:#29235c; padding:12px 14px; border-radius:12px; border:1.5px solid #cc3a2e; background:#fdf3f1; outline:none; width:100%; box-sizing:border-box; transition:border-color .15s ease, box-shadow .15s ease;";
+    const pixBtn = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#00a884; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; box-shadow:0 12px 28px -12px rgba(0,168,132,0.75); transition:transform .15s ease, background .15s ease;";
+    const cardPrimary = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#cc5b3e; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; box-shadow:0 12px 28px -12px rgba(204,91,62,0.7); transition:transform .15s ease, background .15s ease;";
+    const cardSecondary = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#fff; color:#29235c; font-family:'Inter',sans-serif; font-weight:600; font-size:16px; padding:14px 20px; border-radius:14px; border:1.5px solid rgba(41,35,92,0.22); cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;";
 
     return {
       semester: this.semester,
@@ -1128,8 +1338,34 @@ class Component extends DCLogic {
       extras,
       donateUrl: donate,
       donateMonthlyUrl: donate + "&recurring=monthly",
-      onDonateGeneric: (ev) => this.openDonate(ev, null, null),
-      onDonateMonthly: (ev) => this.openDonate(ev, null, "monthly")
+      onDonateGeneric: (ev) => this.openDonateForm(ev, null, null),
+      onDonateMonthly: (ev) => this.openDonateForm(ev, null, "monthly"),
+      dfOpen: dfOpen,
+      dfSummary: dfSummary,
+      dfShowPix: dfShowPix,
+      dfRecurring: dfRecurring,
+      dfNome: this.state.dfNome || "",
+      dfEmail: this.state.dfEmail || "",
+      dfTel: this.state.dfTel || "",
+      dfErrNome: dfErr.nome || "",
+      dfErrEmail: dfErr.email || "",
+      dfErrTel: dfErr.tel || "",
+      dfNomeStyle: dfErr.nome ? inpErrS : inpBase,
+      dfEmailStyle: dfErr.email ? inpErrS : inpBase,
+      dfTelStyle: dfErr.tel ? inpErrS : inpBase,
+      dfPixStyle: pixBtn,
+      dfCardStyle: dfShowPix ? cardSecondary : cardPrimary,
+      dfPixLabel: dfBusy ? "Abrindo PIX…" : "Doar com PIX",
+      dfCardLabel: dfBusy ? "Processando…" : "Doar com cartão",
+      dfBusy: dfBusy,
+      dfClose: () => this.closeDonateForm(),
+      dfStop: (ev) => ev.stopPropagation(),
+      dfSetNome: (ev) => this.dfSetNome(ev),
+      dfSetEmail: (ev) => this.dfSetEmail(ev),
+      dfSetTel: (ev) => this.dfSetTel(ev),
+      dfPayPix: () => this.payWithPix(),
+      dfPayCard: () => this.payWithCard(),
+      dfEnablePix: () => this.dfEnablePix()
     };
   }
 }
