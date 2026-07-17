@@ -221,7 +221,7 @@
       </div>
       <div style="flex-shrink: 0; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(14px, 2vw, 24px);">
         <a href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" style="display: inline-flex; align-items: center; gap: 9px; background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(15px, 2vw, 17px); padding: 16px 30px; border-radius: 999px; box-shadow: 0 14px 34px -10px rgba(204,91,62,0.75); transition: transform .15s ease, background .15s ease;" style-hover="background: #b84e33; transform: translateY(-2px); color: #fff;">Doar agora</a>
-        <a href="#doar" style="display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.9); font-weight: 600; font-size: clamp(14px, 1.9vw, 16px); transition: color .15s ease;" style-hover="color: #f4a48c;">Conhecer os planos ↓</a>
+        <a href="#doar" style="display: inline-flex; align-items: center; gap: 7px; color: #fff; font-weight: 600; font-size: clamp(14px, 1.9vw, 16px); padding: 14px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.55); transition: border-color .15s ease, background .15s ease, color .15s ease;" style-hover="border-color:#fff; background:rgba(255,255,255,0.1); color:#fff;">Conhecer os planos ↓</a>
       </div>
     </div>
   </section>
@@ -243,7 +243,7 @@
     <div class="reveal" data-reveal="">
       <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">As sete expedições</p>
       <h2 id="expedicoes-titulo" style="font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(26px, 5.4vw, 46px); line-height: 1.1; margin: 0 0 12px;">Veja para onde o seu apoio foi.</h2>
-      <p style="margin: 0 0 clamp(28px, 4vw, 40px); font-size: clamp(15px, 2vw, 16px); color: #6a6590; max-width: 580px;">Toque em qualquer expedição para abrir o relatório em versão simplificada&nbsp; com fotos, números e link para o documento completo.</p>
+      <p style="margin: 0 0 clamp(28px, 4vw, 40px); font-size: clamp(15px, 2vw, 16px); color: #6a6590; max-width: 580px;">Toque em qualquer expedição para abrir o relatório com fotos e números.</p>
     </div>
 
     <div class="reveal" data-reveal="" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(24px, 3vw, 34px);">
@@ -395,6 +395,7 @@
           <button type="button" aria-label="Fechar" onClick="{{ dfClose }}" style="position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.16); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .15s ease, transform .2s ease;" style-hover="background: rgba(255,255,255,0.3); transform: rotate(90deg);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
           <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: #f4a48c; margin: 0 0 8px;">Falta pouco</p>
           <h2 id="df-title" style="font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(22px, 4.6vw, 28px); line-height: 1.12; margin: 0;">{{ dfSummary }}</h2>
+          <sc-if value="{{ dfRecurrenceLabel }}" hint-placeholder-val="{{ false }}"><p style="font-size: 12.5px; margin: 10px 0 0; color: rgba(255,255,255,0.82); font-weight: 500; line-height: 1.4;">{{ dfRecurrenceLabel }}</p></sc-if>
         </div>
         <div style="padding: clamp(22px, 4vw, 28px) clamp(24px, 5vw, 34px) clamp(24px, 5vw, 32px); display: flex; flex-direction: column; gap: 15px; overflow-y: auto;">
           <label style="display: flex; flex-direction: column; gap: 6px;">
@@ -415,50 +416,14 @@
             <sc-if value="{{ dfErrTel }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 12.5px; color: #cc3a2e; font-weight: 500;">{{ dfErrTel }}</span></sc-if>
           </label>
           <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 4px;">
-            <button type="button" onClick="{{ dfPayPix }}" disabled="{{ dfBusy }}" style="{{ dfPixStyle }}" style-hover="transform: translateY(-1px); background:#00997a; color:#fff;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 4 4-4 4-4-4 4-4Z"></path><path d="m12 14 4 4-4 4-4-4 4-4Z"></path><path d="m2 12 4-4 4 4-4 4-4-4Z"></path><path d="m14 12 4-4 4 4-4 4-4-4Z"></path></svg>{{ dfPixLabel }}</button>
-            <button type="button" onClick="{{ dfPayCard }}" disabled="{{ dfBusy }}" style="{{ dfCardStyle }}" style-hover="transform: translateY(-1px);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"></rect><path d="M2 10h20"></path></svg>{{ dfCardLabel }}</button>
+            <button type="button" onClick="{{ dfPayPix }}" disabled="{{ dfBusy }}" style="{{ dfPixStyle }}" style-hover="{{ dfPixHover }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 4 4-4 4-4-4 4-4Z"></path><path d="m12 14 4 4-4 4-4-4 4-4Z"></path><path d="m2 12 4-4 4 4-4 4-4-4Z"></path><path d="m14 12 4-4 4 4-4 4-4-4Z"></path></svg>{{ dfPixLabel }}</button>
+            <button type="button" onClick="{{ dfPayCard }}" disabled="{{ dfBusy }}" style="{{ dfCardStyle }}" style-hover="{{ dfCardHover }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"></rect><path d="M2 10h20"></path></svg>{{ dfCardLabel }}</button>
           </div>
           <p style="font-size: 12px; color: #8a86a8; text-align: center; line-height: 1.5; margin: 2px 0 0;">Seus dados são usados apenas para concluir e confirmar a sua doação. Pagamento seguro.</p>
         </div>
       </div>
     </div>
   </sc-if>
-  <section id="historias" aria-labelledby="vozes-titulo" style="background: #f6f3ed; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px) clamp(40px, 5vw, 56px);">
-    <div style="max-width: 1180px; margin: 0 auto;">
-      <div class="reveal" data-reveal="" style="max-width: 680px; margin-bottom: clamp(36px, 5vw, 52px);">
-        <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Histórias que o seu apoio escreveu</p>
-        <h2 id="vozes-titulo" style="font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0; text-wrap: balance;">Vozes de quem esteve lá.</h2>
-      </div>
-      <div class="reveal" data-reveal="" style="display: flex; flex-wrap: wrap; gap: clamp(18px, 2.5vw, 28px); align-items: stretch;">
-        <div style="flex: 1.7 1 520px; min-width: min(100%, 320px); position: relative; border-radius: 20px; overflow: hidden; background: #29235c; aspect-ratio: 16 / 9;">
-          <sc-if value="{{ videoOn }}" hint-placeholder-val="{{ false }}">{{ videoPlayer }}</sc-if>
-          <sc-if value="{{ videoPosterOn }}" hint-placeholder-val="{{ true }}">
-            <button type="button" onClick="{{ playVideo }}" aria-label="Assistir depoimento em vídeo, cerca de 40 segundos, com legendas" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: none; display: block;">
-              <img src="https://i.ytimg.com/vi/bvRx4ogIemA/maxresdefault.jpg" alt="Capa do vídeo de depoimento" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
-              <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(41,35,92,0.72), rgba(41,35,92,0.10) 55%);"></span>
-              <span aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: clamp(64px, 8vw, 84px); height: clamp(64px, 8vw, 84px); border-radius: 999px; background: #cc5b3e; display: flex; align-items: center; justify-content: center; animation: zoePulse 2.6s ease-out infinite;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
-              </span>
-              <span style="position: absolute; left: clamp(18px, 3vw, 28px); right: clamp(18px, 3vw, 28px); bottom: clamp(16px, 2.5vw, 24px); text-align: left; color: #fff; display: flex; flex-direction: column; gap: 4px;">
-                <span style="font-weight: 600; font-size: clamp(15px, 2vw, 18px);">“Saí com esperança.” — assista ao depoimento</span>
-                <span style="font-size: 13px; color: rgba(255,255,255,0.78);">Paciente atendida no Rio Arapiuns · ≈ 40 segundos · com legendas</span>
-                <sc-if value="{{ videoMissing }}" hint-placeholder-val="{{ false }}">
-                  <span style="font-size: 12.5px; color: #f4a48c; font-family: ui-monospace, monospace;">vídeo ainda não configurado — adicione o link no painel de ajustes</span>
-                </sc-if>
-              </span>
-            </button>
-          </sc-if>
-        </div>
-        <figure style="flex: 1 1 300px; min-width: min(100%, 280px); margin: 0; background: #fff; border: 1px solid rgba(41,35,92,0.10); border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
-          <blockquote style="margin: 0; font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-style: italic; font-size: clamp(19px, 2.4vw, 23px); line-height: 1.32; color: #29235c;">“Esse modelo de trabalho está cuidando do território, do meio ambiente, da cultura e das relações sociais desses povos.”</blockquote>
-          <figcaption style="padding-top: 16px; border-top: 1px solid rgba(41,35,92,0.10);">
-            <div style="font-weight: 600; font-size: 14.5px; color: #29235c;">Dr. Erik Jennings</div>
-            <div style="font-size: 13px; color: #8a86a8; margin-top: 3px;">Neurocirurgião · Conselho da Zoé</div>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
 
   <!-- PLANOS DE DOAÇÃO -->
   <section id="doar" aria-labelledby="planos-titulo" style="background: #fff; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px);">
@@ -545,6 +510,43 @@
           <p style="text-align: center; margin: 14px 0 0; font-size: 13px; color: #a7a3c0;">Doação segura via FundraiseUp.</p>
         </div>
       </sc-if>
+    </div>
+  </section>
+
+  <section id="historias" aria-labelledby="vozes-titulo" style="background: #f6f3ed; padding: clamp(56px, 9vw, 104px) clamp(20px, 5vw, 40px) clamp(40px, 5vw, 56px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div class="reveal" data-reveal="" style="max-width: 680px; margin-bottom: clamp(36px, 5vw, 52px);">
+        <p style="font-size: clamp(11px, 3vw, 13px); letter-spacing: 0.3em; text-transform: uppercase; color: #cc5b3e; font-weight: 600; margin: 0 0 14px;">Histórias que o seu apoio escreveu</p>
+        <h2 id="vozes-titulo" style="font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(28px, 5.4vw, 48px); line-height: 1.08; margin: 0; text-wrap: balance;">Vozes de quem esteve lá.</h2>
+      </div>
+      <div class="reveal" data-reveal="" style="display: flex; flex-wrap: wrap; gap: clamp(18px, 2.5vw, 28px); align-items: stretch;">
+        <div style="flex: 1.7 1 520px; min-width: min(100%, 320px); position: relative; border-radius: 20px; overflow: hidden; background: #29235c; aspect-ratio: 16 / 9;">
+          <sc-if value="{{ videoOn }}" hint-placeholder-val="{{ false }}">{{ videoPlayer }}</sc-if>
+          <sc-if value="{{ videoPosterOn }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ playVideo }}" aria-label="Assistir depoimento em vídeo, cerca de 40 segundos, com legendas" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: none; display: block;">
+              <img src="https://i.ytimg.com/vi/bvRx4ogIemA/maxresdefault.jpg" alt="Capa do vídeo de depoimento" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+              <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(41,35,92,0.72), rgba(41,35,92,0.10) 55%);"></span>
+              <span aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: clamp(64px, 8vw, 84px); height: clamp(64px, 8vw, 84px); border-radius: 999px; background: #cc5b3e; display: flex; align-items: center; justify-content: center; animation: zoePulse 2.6s ease-out infinite;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
+              </span>
+              <span style="position: absolute; left: clamp(18px, 3vw, 28px); right: clamp(18px, 3vw, 28px); bottom: clamp(16px, 2.5vw, 24px); text-align: left; color: #fff; display: flex; flex-direction: column; gap: 4px;">
+                <span style="font-weight: 600; font-size: clamp(15px, 2vw, 18px);">“Saí com esperança.” — assista ao depoimento</span>
+                <span style="font-size: 13px; color: rgba(255,255,255,0.78);">Paciente atendida no Rio Arapiuns · ≈ 40 segundos · com legendas</span>
+                <sc-if value="{{ videoMissing }}" hint-placeholder-val="{{ false }}">
+                  <span style="font-size: 12.5px; color: #f4a48c; font-family: ui-monospace, monospace;">vídeo ainda não configurado — adicione o link no painel de ajustes</span>
+                </sc-if>
+              </span>
+            </button>
+          </sc-if>
+        </div>
+        <figure style="flex: 1 1 300px; min-width: min(100%, 280px); margin: 0; background: #fff; border: 1px solid rgba(41,35,92,0.10); border-radius: 20px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+          <blockquote style="margin: 0; font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-style: italic; font-size: clamp(19px, 2.4vw, 23px); line-height: 1.32; color: #29235c;">“Esse modelo de trabalho está cuidando do território, do meio ambiente, da cultura e das relações sociais desses povos.”</blockquote>
+          <figcaption style="padding-top: 16px; border-top: 1px solid rgba(41,35,92,0.10);">
+            <div style="font-weight: 600; font-size: 14.5px; color: #29235c;">Dr. Erik Jennings</div>
+            <div style="font-size: 13px; color: #8a86a8; margin-top: 3px;">Neurocirurgião · Conselho da Zoé</div>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -1395,8 +1397,17 @@ class Component extends DCLogic {
       btn: "margin-top:auto; display:inline-block; text-align:center; background:#cc5b3e; color:#fff; font-weight:700; font-size:15px; padding:14px 20px; border-radius:999px; transition:transform .15s ease, background .15s ease;",
       btnHover: "background:#b84e33; transform:translateY(-1px); color:#fff;"
     };
+    const tGift = {
+      card: "position:relative; display:flex; flex-direction:column; background:#fff7f4; border:2px solid #cc5b3e; border-radius:20px; padding:clamp(26px,3vw,34px); box-shadow:0 8px 28px -16px rgba(204,91,62,0.22); transition:transform .18s ease, box-shadow .18s ease;",
+      cardHover: "transform:translateY(-4px); box-shadow:0 22px 46px -20px rgba(204,91,62,0.38);",
+      name: "font-size:12px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; color:#cc5b3e; margin:0;",
+      amount: "font-family:'Cooper Black', 'Coustard', Georgia, serif; font-weight:400; font-size:clamp(30px,4.4vw,42px); line-height:1; color:#29235c; margin:12px 0 4px;",
+      blurb: "font-size:14.5px; line-height:1.55; color:#6a6590; margin:8px 0 24px;",
+      btn: "margin-top:auto; display:inline-block; text-align:center; background:#cc5b3e; color:#fff; font-weight:600; font-size:15px; padding:13px 20px; border-radius:999px; transition:transform .15s ease, background .15s ease;",
+      btnHover: "background:#b84e33; transform:translateY(-1px); color:#fff;"
+    };
     const tiers = this.tiers.map((t) => {
-      const v = t.featured ? tFeat : tNorm;
+      const v = t.featured ? tFeat : t.gift ? tGift : tNorm;
       const tDonate = t.amt ? (donate + "&amount=" + t.amt + "&currency=BRL&recurring=monthly") : donate;
       return {
         ...t, donate: tDonate, onDonate: (ev) => this.openDonateForm(ev, t.amt, "monthly"), hasBadge: !!t.badge, badge: t.badge || "", hasGift: !!t.gift,
@@ -1424,16 +1435,35 @@ class Component extends DCLogic {
     const dfOpen = df != null;
     const dfErr = this.state.dfErr || {};
     const dfBusy = !!this.state.dfBusy;
-    // Pagamento é sempre via PIX; a frequência (única ou mensal) e o valor
-    // são escolhidos na próxima tela (/pix), então o form não distingue mais
-    // recorrência nem oferece cartão.
     const fmtBRL = (n) => "R$ " + Number(n).toLocaleString("pt-BR");
+    const isMonthly = df && df.recurring === "monthly";
+    const isOnce    = df && df.recurring === "once";
+
+    // Título: preserva periodicidade
     let dfSummary = "Doação — você escolhe o valor";
-    if (df && df.amount) dfSummary = "Doar " + fmtBRL(df.amount);
+    if (df) {
+      if (df.amount) dfSummary = "Doar " + fmtBRL(df.amount) + (isMonthly ? "/mês" : "");
+      else if (isMonthly) dfSummary = "Doação mensal — você escolhe";
+    }
+
+    // Subtítulo de recorrência
+    const dfRecurrenceLabel = isMonthly
+      ? "Doação recorrente mensal · cancele quando quiser"
+      : isOnce ? "Doação única" : "";
+
     const inpBase = "font-family:'Inter',sans-serif; font-size:15px; color:#29235c; padding:12px 14px; border-radius:12px; border:1.5px solid rgba(41,35,92,0.18); background:#fbfaf7; outline:none; width:100%; box-sizing:border-box; transition:border-color .15s ease, box-shadow .15s ease;";
     const inpErrS = "font-family:'Inter',sans-serif; font-size:15px; color:#29235c; padding:12px 14px; border-radius:12px; border:1.5px solid #cc3a2e; background:#fdf3f1; outline:none; width:100%; box-sizing:border-box; transition:border-color .15s ease, box-shadow .15s ease;";
-    const pixBtn = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#00a884; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; box-shadow:0 12px 28px -12px rgba(0,168,132,0.75); transition:transform .15s ease, background .15s ease;";
-    const cardBtn = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#fff; color:#29235c; font-family:'Inter',sans-serif; font-weight:600; font-size:16px; padding:14px 20px; border-radius:14px; border:1.5px solid rgba(41,35,92,0.22); cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;";
+
+    // Estilos dos botões: cartão é primário em planos mensais, PIX em doação única/livre
+    const btnFilled  = (bg, shadow) => "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:" + bg + "; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; box-shadow:0 12px 28px -12px " + shadow + "; transition:transform .15s ease, background .15s ease;";
+    const btnOutline = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#fff; color:#29235c; font-family:'Inter',sans-serif; font-weight:600; font-size:16px; padding:14px 20px; border-radius:14px; border:1.5px solid rgba(41,35,92,0.22); cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;";
+    const pixBtn  = isMonthly ? btnOutline                                : btnFilled("#00a884", "rgba(0,168,132,0.75)");
+    const cardBtn = isMonthly ? btnFilled("#29235c", "rgba(41,35,92,0.6)") : btnOutline;
+    // ordem visual: cartão primeiro em mensal, PIX primeiro nas demais
+    const pixBtn_s  = pixBtn  + (isMonthly ? " order:1;" : " order:0;");
+    const cardBtn_s = cardBtn + (isMonthly ? " order:0;" : " order:1;");
+    const dfPixHover  = isMonthly ? "transform:translateY(-1px); border-color:#29235c;" : "transform:translateY(-1px); background:#00997a; color:#fff;";
+    const dfCardHover = isMonthly ? "transform:translateY(-1px); background:#1e1a45;"   : "transform:translateY(-1px); border-color:#29235c;";
 
     return {
       semester: this.semester,
@@ -1495,10 +1525,16 @@ class Component extends DCLogic {
       dfNomeStyle: dfErr.nome ? inpErrS : inpBase,
       dfEmailStyle: dfErr.email ? inpErrS : inpBase,
       dfTelStyle: dfErr.tel ? inpErrS : inpBase,
-      dfPixStyle: pixBtn,
-      dfCardStyle: cardBtn,
-      dfPixLabel: dfBusy ? "Abrindo PIX…" : "Doar com PIX",
-      dfCardLabel: dfBusy ? "Processando…" : "Doar com cartão",
+      dfPixStyle: pixBtn_s,
+      dfCardStyle: cardBtn_s,
+      dfPixHover: dfPixHover,
+      dfCardHover: dfCardHover,
+      dfRecurrenceLabel: dfRecurrenceLabel,
+      dfPixLabel: dfBusy ? "Abrindo PIX…" : (isMonthly ? "Pagar com PIX" : "Doar com PIX"),
+      dfCardLabel: dfBusy ? "Processando…"
+        : isMonthly && df && df.amount ? "Assinar " + fmtBRL(df.amount) + "/mês com cartão"
+        : isMonthly ? "Assinar mensalmente com cartão"
+        : "Doar com cartão",
       dfBusy: dfBusy,
       dfClose: () => this.closeDonateForm(),
       dfStop: (ev) => ev.stopPropagation(),
