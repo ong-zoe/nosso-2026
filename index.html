@@ -1056,6 +1056,21 @@ class Component extends DCLogic {
     this._donorStore(false, Object.assign(cur, patch || {}));
   }
 
+  // Lê nome/email/telefone da URL para pré-preencher o form quando a pessoa
+  // chega por um link personalizado. Só é usado como fallback: o que já está
+  // salvo na sessão tem prioridade (ver openDonateForm).
+  _urlDonorPrefill() {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      const tel = p.get("telefone") || p.get("tel") || "";
+      return {
+        nome: (p.get("nome") || "").trim(),
+        email: (p.get("email") || "").trim(),
+        tel: tel ? this.maskPhone(tel) : ""
+      };
+    } catch (e) { return { nome: "", email: "", tel: "" }; }
+  }
+
   maskPhone(v) {
     const d = String(v == null ? "" : v).replace(/\D/g, "").slice(0, 11);
     if (!d) return "";
@@ -1073,11 +1088,12 @@ class Component extends DCLogic {
       if (ev && ev.preventDefault) ev.preventDefault();
       if (typeof document !== "undefined") this._lastFocus = document.activeElement;
       const saved = this._donorStore(true);
+      const fromUrl = this._urlDonorPrefill();
       this.setState({
         df: { amount: amount || null, recurring: recurring || null },
-        dfNome: this.state.dfNome || saved.nome || "",
-        dfEmail: this.state.dfEmail || saved.email || "",
-        dfTel: this.state.dfTel || saved.tel || "",
+        dfNome: this.state.dfNome || saved.nome || fromUrl.nome || "",
+        dfEmail: this.state.dfEmail || saved.email || fromUrl.email || "",
+        dfTel: this.state.dfTel || saved.tel || fromUrl.tel || "",
         dfErr: {}, dfBusy: false
       });
       if (typeof document !== "undefined") document.body.style.overflow = "hidden";
