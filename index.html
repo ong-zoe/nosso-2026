@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
 <script>(function(w,d,s,n,a){if(!w[n]){var l='call,catch,on,once,set,then,track,openCheckout'.split(','),i,o=function(n){return'function'==typeof n?o.l.push([arguments])&&o:function(){return o.l.push([n,arguments])&&o}},t=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=!0;j.src='https://cdn.fundraiseup.com/widget/'+a+'';t.parentNode.insertBefore(j,t);o.s=Date.now();o.v=5;o.h=w.location.href;o.l=[];for(i=0;i<8;i++)o[l[i]]=o(l[i]);w[n]=o}})(window,document,'script','FundraiseUp','ANNGYZMA');</script>
 <style>
   @font-face {
@@ -51,6 +52,11 @@
   .mobile-cta { display: none; }
   img { display: block; }
   section[id] { scroll-margin-top: 88px; }
+  /* Seletor de país com bandeira (intl-tel-input) no form de doação.
+     A lib cuida do padding do input; só garantimos largura total e que a
+     lista de países (anexada ao body) fique acima do modal (z-index 130). */
+  .iti { width: 100%; display: block; }
+  .iti--container, .iti__dropdown-content, .iti__country-list { z-index: 100000 !important; }
   .zoe-nav a { color: #4a4572; }
   .zoe-nav a:hover { color: #cc5b3e; }
   .zoe-nav { transition: opacity .25s ease; }
@@ -403,7 +409,9 @@
           </label>
           <label style="display: flex; flex-direction: column; gap: 6px;">
             <span style="font-size: 13px; font-weight: 600; color: #29235c;">Telefone / WhatsApp</span>
-            <input type="tel" value="{{ dfTel }}" onChange="{{ dfSetTel }}" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" aria-label="Telefone ou WhatsApp" style="{{ dfTelStyle }}" style-focus="border-color:#29235c; box-shadow:0 0 0 3px rgba(41,35,92,0.12);">
+            <div data-df-tel-wrap="" style="width: 100%;">
+              <input data-df-tel="" type="tel" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" aria-label="Telefone ou WhatsApp" style="{{ dfTelStyle }}" style-focus="border-color:#29235c; box-shadow:0 0 0 3px rgba(41,35,92,0.12);">
+            </div>
             <sc-if value="{{ dfErrTel }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 12.5px; color: #cc3a2e; font-weight: 500;">{{ dfErrTel }}</span></sc-if>
           </label>
           <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 4px;">
@@ -885,6 +893,7 @@ class Component extends DCLogic {
   componentDidMount() {
     if (typeof window === "undefined") return;
     if (typeof this._ensureUtmCampaign === "function") this._ensureUtmCampaign();
+    this._loadTelLib();
     this._onKey = (ev) => {
       const dfOpen = this.state.df != null;
       const expOpen = this.state.modal != null;
@@ -931,6 +940,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    this._destroyTel();
     if (this._onScroll) window.removeEventListener("scroll", this._onScroll);
     if (this._io) this._io.disconnect();
     if (this._cio) this._cio.disconnect();
@@ -988,6 +998,7 @@ class Component extends DCLogic {
       }
     }
     if (wasDf == null && nowDf != null) {
+      this._initTel();
       const inp = document.querySelector('[data-df-first]');
       if (inp && inp.focus) inp.focus();
     }
@@ -1061,7 +1072,9 @@ class Component extends DCLogic {
       return {
         nome: (p.get("nome") || "").trim(),
         email: (p.get("email") || "").trim(),
-        tel: tel ? this.maskPhone(tel) : ""
+        // Valor cru (pode vir com +55 / 55 do CRM): o seletor de telefone
+        // interpreta o código do país e formata na abertura do form.
+        tel: (tel || "").trim()
       };
     } catch (e) { return { nome: "", email: "", tel: "" }; }
   }
@@ -1073,6 +1086,112 @@ class Component extends DCLogic {
     if (d.length <= 6) return "(" + d.slice(0, 2) + ") " + d.slice(2);
     if (d.length <= 10) return "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
     return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+  }
+
+  // ---- Seletor de telefone internacional (intl-tel-input) ----
+  // A página inteira já depende de CDN (React vem do unpkg), então carregamos
+  // a lib do jsDelivr. Se ela falhar, o campo cai para uma máscara BR simples.
+  _TEL_UTILS_URL = "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js";
+
+  _loadTelLib() {
+    if (typeof document === "undefined") return;
+    if (typeof window !== "undefined" && typeof window.intlTelInput === "function") return;
+    if (this._telLibLoading) return;
+    this._telLibLoading = true;
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js";
+    s.async = true;
+    s.onload = () => {
+      // Se o form já estava aberto (fallback ativo), faz o upgrade para o seletor.
+      if (this.state.df != null && !this._iti) this._initTel();
+    };
+    s.onerror = () => { this._telLibLoading = false; };
+    document.head.appendChild(s);
+  }
+
+  _initTel() {
+    if (typeof document === "undefined") return;
+    const input = document.querySelector("[data-df-tel]");
+    if (!input) return;
+    this._destroyTel();
+    const raw = (this.state.dfTel || "").trim();
+    const digits = raw.replace(/\D/g, "");
+    let e164 = "";
+    if (raw.charAt(0) === "+") e164 = raw;
+    else if (digits.length >= 12) e164 = "+" + digits;      // já traz código do país (ex.: 55…)
+    else if (digits) e164 = "+55" + digits;                  // número nacional BR
+    const sync = () => {
+      const v = this._getTel();
+      if (v !== this.state.dfTel) this.setState({ dfTel: v });
+      this._saveDonor({ tel: v });
+    };
+    if (typeof window !== "undefined" && typeof window.intlTelInput === "function") {
+      try {
+        const iti = window.intlTelInput(input, {
+          initialCountry: "br",
+          separateDialCode: true,
+          nationalMode: false,
+          dropdownContainer: document.body,
+          loadUtils: () => import(this._TEL_UTILS_URL)
+        });
+        this._iti = iti;
+        const applyNumber = () => { if (e164) { try { iti.setNumber(e164); } catch (e) {} } };
+        applyNumber();
+        // Reaplica após o utils carregar, para formatar o número corretamente.
+        if (iti.promise && iti.promise.then) iti.promise.then(applyNumber).catch(() => {});
+        this._telSync = sync;
+        input.addEventListener("input", this._telSync);
+        input.addEventListener("countrychange", this._telSync);
+        return;
+      } catch (e) { this._iti = null; }
+    }
+    // Fallback: máscara BR simples, removendo +55 se vier do link.
+    const nat = (digits.length >= 12 && digits.slice(0, 2) === "55") ? digits.slice(2) : digits;
+    input.value = this.maskPhone(nat);
+    this._telSync = () => {
+      const v = this.maskPhone(input.value);
+      input.value = v;
+      if (v !== this.state.dfTel) this.setState({ dfTel: v });
+      this._saveDonor({ tel: v });
+    };
+    input.addEventListener("input", this._telSync);
+  }
+
+  _destroyTel() {
+    const input = typeof document !== "undefined" ? document.querySelector("[data-df-tel]") : null;
+    if (input && this._telSync) {
+      input.removeEventListener("input", this._telSync);
+      input.removeEventListener("countrychange", this._telSync);
+    }
+    this._telSync = null;
+    if (this._iti) { try { this._iti.destroy(); } catch (e) {} this._iti = null; }
+  }
+
+  // Número canônico para validação/envio: E.164 (ex.: +5521981771413) quando
+  // o utils da lib já carregou; senão o que estiver no campo.
+  _getTel() {
+    if (this._iti) {
+      try { const n = this._iti.getNumber(); if (n) return n; } catch (e) {}
+    }
+    const input = typeof document !== "undefined" ? document.querySelector("[data-df-tel]") : null;
+    if (input && input.value) return input.value.trim();
+    return (this.state.dfTel || "").trim();
+  }
+
+  _telError() {
+    const input = typeof document !== "undefined" ? document.querySelector("[data-df-tel]") : null;
+    const raw = input ? input.value.trim() : (this.state.dfTel || "").trim();
+    if (!raw) return "Digite seu WhatsApp com DDD.";
+    if (this._iti) {
+      let valid = null;
+      try { valid = this._iti.isValidNumber(); } catch (e) { valid = null; }
+      if (valid === false) return "Número inválido — confira o DDD e o número.";
+      if (valid === true) return "";
+      // valid === null → utils ainda não carregou; cai na checagem por dígitos.
+    }
+    const digits = this._getTel().replace(/\D/g, "");
+    if (digits.length < 10) return "Telefone incompleto — inclua o DDD.";
+    return "";
   }
 
   openDonateForm(ev, amount, recurring) {
@@ -1099,6 +1218,9 @@ class Component extends DCLogic {
   }
 
   closeDonateForm() {
+    // Destrói o seletor de telefone enquanto o input ainda está no DOM
+    // (o React desmonta o diálogo logo em seguida).
+    this._destroyTel();
     this.setState({ df: null, dfBusy: false });
     if (typeof document !== "undefined") document.body.style.overflow = "";
     const el = this._lastFocus;
@@ -1113,14 +1235,12 @@ class Component extends DCLogic {
   _validateDonor() {
     const nome = (this.state.dfNome || "").trim();
     const email = (this.state.dfEmail || "").trim();
-    const tel = (this.state.dfTel || "").trim();
-    const digits = tel.replace(/\D/g, "");
     const err = {};
     if (!nome) err.nome = "Digite seu nome completo.";
     if (!email) err.email = "Digite seu e-mail.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) err.email = "Digite um e-mail válido.";
-    if (!tel) err.tel = "Digite seu WhatsApp com DDD.";
-    else if (digits.length < 10 || digits.length > 11) err.tel = "Telefone incompleto — inclua o DDD.";
+    const telErr = this._telError();
+    if (telErr) err.tel = telErr;
     this.setState({ dfErr: err });
     return Object.keys(err).length === 0;
   }
@@ -1130,7 +1250,7 @@ class Component extends DCLogic {
     const params = new URLSearchParams();
     params.set("nome", (this.state.dfNome || "").trim());
     params.set("email", (this.state.dfEmail || "").trim());
-    params.set("telefone", (this.state.dfTel || "").trim());
+    params.set("telefone", this._getTel());
     if (df.amount) { params.set("valor", String(df.amount)); params.set("auto", "1"); }
     params.set("utm_campaign", this.campaignTag);
     try {
@@ -1149,7 +1269,7 @@ class Component extends DCLogic {
     this._donorStore(false, {
       nome: (this.state.dfNome || "").trim(),
       email: (this.state.dfEmail || "").trim(),
-      tel: (this.state.dfTel || "").trim()
+      tel: this._getTel()
     });
     const url = this._buildPixUrl();
     this.setState({ dfBusy: true });
@@ -1161,7 +1281,7 @@ class Component extends DCLogic {
     if (!this._validateDonor()) return;
     const nome = (this.state.dfNome || "").trim();
     const email = (this.state.dfEmail || "").trim();
-    const tel = (this.state.dfTel || "").trim();
+    const tel = this._getTel();
     this._donorStore(false, { nome: nome, email: email, tel: tel });
     const df = this.state.df || {};
     try {
