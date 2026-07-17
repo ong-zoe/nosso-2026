@@ -1530,11 +1530,11 @@ class Component extends DCLogic {
       dfPixHover: dfPixHover,
       dfCardHover: dfCardHover,
       dfRecurrenceLabel: dfRecurrenceLabel,
-      dfPixLabel: dfBusy ? "Abrindo PIX…" : (isMonthly ? "Pagar com PIX" : "Doar com PIX"),
+      dfPixLabel: dfBusy ? "Abrindo PIX…" : "Doe com PIX",
       dfCardLabel: dfBusy ? "Processando…"
         : isMonthly && df && df.amount ? "Assinar " + fmtBRL(df.amount) + "/mês com cartão"
         : isMonthly ? "Assinar mensalmente com cartão"
-        : "Doar com cartão",
+        : "Doe com cartão",
       dfBusy: dfBusy,
       dfClose: () => this.closeDonateForm(),
       dfStop: (ev) => ev.stopPropagation(),
