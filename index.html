@@ -407,13 +407,8 @@
             <sc-if value="{{ dfErrTel }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 12.5px; color: #cc3a2e; font-weight: 500;">{{ dfErrTel }}</span></sc-if>
           </label>
           <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 4px;">
-            <sc-if value="{{ dfShowPix }}" hint-placeholder-val="{{ false }}">
-              <button type="button" onClick="{{ dfPayPix }}" disabled="{{ dfBusy }}" style="{{ dfPixStyle }}" style-hover="transform: translateY(-1px); background:#00997a; color:#fff;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 4 4-4 4-4-4 4-4Z"></path><path d="m12 14 4 4-4 4-4-4 4-4Z"></path><path d="m2 12 4-4 4 4-4 4-4-4Z"></path><path d="m14 12 4-4 4 4-4 4-4-4Z"></path></svg>{{ dfPixLabel }}</button>
-            </sc-if>
+            <button type="button" onClick="{{ dfPayPix }}" disabled="{{ dfBusy }}" style="{{ dfPixStyle }}" style-hover="transform: translateY(-1px); background:#00997a; color:#fff;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 4 4-4 4-4-4 4-4Z"></path><path d="m12 14 4 4-4 4-4-4 4-4Z"></path><path d="m2 12 4-4 4 4-4 4-4-4Z"></path><path d="m14 12 4-4 4 4-4 4-4-4Z"></path></svg>{{ dfPixLabel }}</button>
             <button type="button" onClick="{{ dfPayCard }}" disabled="{{ dfBusy }}" style="{{ dfCardStyle }}" style-hover="transform: translateY(-1px);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"></rect><path d="M2 10h20"></path></svg>{{ dfCardLabel }}</button>
-            <sc-if value="{{ dfRecurring }}" hint-placeholder-val="{{ false }}">
-              <button type="button" onClick="{{ dfEnablePix }}" style="background: none; border: none; padding: 4px; font-family:'Inter',sans-serif; font-size: 13.5px; color: #6a6590; cursor: pointer; text-align: center;">Doações mensais são no cartão. <span style="color:#cc5b3e; font-weight:600; border-bottom:1px solid rgba(204,91,62,0.4);">Prefere doar uma vez no PIX?</span></button>
-            </sc-if>
           </div>
           <p style="font-size: 12px; color: #8a86a8; text-align: center; line-height: 1.5; margin: 2px 0 0;">Seus dados são usados apenas para concluir e confirmar a sua doação. Pagamento seguro.</p>
         </div>
@@ -1111,11 +1106,6 @@ class Component extends DCLogic {
     if (el && el.focus) requestAnimationFrame(() => el.focus());
   }
 
-  dfEnablePix() {
-    const df = this.state.df || {};
-    this.setState({ df: { amount: df.amount || null, recurring: null } });
-  }
-
   dfSetNome(ev) { const v = ev.target.value; this.setState({ dfNome: v }); this._saveDonor({ nome: v }); }
   dfSetEmail(ev) { const v = ev.target.value; this.setState({ dfEmail: v }); this._saveDonor({ email: v }); }
   dfSetTel(ev) { const v = this.maskPhone(ev.target.value); this.setState({ dfTel: v }); this._saveDonor({ tel: v }); }
@@ -1314,22 +1304,16 @@ class Component extends DCLogic {
     const dfOpen = df != null;
     const dfErr = this.state.dfErr || {};
     const dfBusy = !!this.state.dfBusy;
-    // "once" is a one-time donation in FundraiseUp; only a real frequency
-    // (e.g. "monthly") counts as recurring, and PIX is hidden only for those.
-    const dfRecurring = !!(df && df.recurring && df.recurring !== "once");
-    const dfShowPix = dfOpen && !dfRecurring;
+    // Pagamento é sempre via PIX; a frequência (única ou mensal) e o valor
+    // são escolhidos na próxima tela (/pix), então o form não distingue mais
+    // recorrência nem oferece cartão.
     const fmtBRL = (n) => "R$ " + Number(n).toLocaleString("pt-BR");
     let dfSummary = "Doação — você escolhe o valor";
-    if (df) {
-      if (df.amount && df.recurring === "monthly") dfSummary = "Doar " + fmtBRL(df.amount) + "/mês";
-      else if (df.amount) dfSummary = "Doar " + fmtBRL(df.amount);
-      else if (df.recurring === "monthly") dfSummary = "Doação mensal — você escolhe o valor";
-    }
+    if (df && df.amount) dfSummary = "Doar " + fmtBRL(df.amount);
     const inpBase = "font-family:'Inter',sans-serif; font-size:15px; color:#29235c; padding:12px 14px; border-radius:12px; border:1.5px solid rgba(41,35,92,0.18); background:#fbfaf7; outline:none; width:100%; box-sizing:border-box; transition:border-color .15s ease, box-shadow .15s ease;";
     const inpErrS = "font-family:'Inter',sans-serif; font-size:15px; color:#29235c; padding:12px 14px; border-radius:12px; border:1.5px solid #cc3a2e; background:#fdf3f1; outline:none; width:100%; box-sizing:border-box; transition:border-color .15s ease, box-shadow .15s ease;";
     const pixBtn = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#00a884; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; box-shadow:0 12px 28px -12px rgba(0,168,132,0.75); transition:transform .15s ease, background .15s ease;";
-    const cardPrimary = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#cc5b3e; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:16px; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; box-shadow:0 12px 28px -12px rgba(204,91,62,0.7); transition:transform .15s ease, background .15s ease;";
-    const cardSecondary = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#fff; color:#29235c; font-family:'Inter',sans-serif; font-weight:600; font-size:16px; padding:14px 20px; border-radius:14px; border:1.5px solid rgba(41,35,92,0.22); cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;";
+    const cardBtn = "display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#fff; color:#29235c; font-family:'Inter',sans-serif; font-weight:600; font-size:16px; padding:14px 20px; border-radius:14px; border:1.5px solid rgba(41,35,92,0.22); cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;";
 
     return {
       semester: this.semester,
@@ -1382,8 +1366,6 @@ class Component extends DCLogic {
       onDonateMonthly: (ev) => this.openDonateForm(ev, null, "monthly"),
       dfOpen: dfOpen,
       dfSummary: dfSummary,
-      dfShowPix: dfShowPix,
-      dfRecurring: dfRecurring,
       dfNome: this.state.dfNome || "",
       dfEmail: this.state.dfEmail || "",
       dfTel: this.state.dfTel || "",
@@ -1394,7 +1376,7 @@ class Component extends DCLogic {
       dfEmailStyle: dfErr.email ? inpErrS : inpBase,
       dfTelStyle: dfErr.tel ? inpErrS : inpBase,
       dfPixStyle: pixBtn,
-      dfCardStyle: dfShowPix ? cardSecondary : cardPrimary,
+      dfCardStyle: cardBtn,
       dfPixLabel: dfBusy ? "Abrindo PIX…" : "Doar com PIX",
       dfCardLabel: dfBusy ? "Processando…" : "Doar com cartão",
       dfBusy: dfBusy,
@@ -1404,8 +1386,7 @@ class Component extends DCLogic {
       dfSetEmail: (ev) => this.dfSetEmail(ev),
       dfSetTel: (ev) => this.dfSetTel(ev),
       dfPayPix: () => this.payWithPix(),
-      dfPayCard: () => this.payWithCard(),
-      dfEnablePix: () => this.dfEnablePix()
+      dfPayCard: () => this.payWithCard()
     };
   }
 }
