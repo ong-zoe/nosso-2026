@@ -1440,7 +1440,7 @@ class Component extends DCLogic {
     const isOnce    = df && df.recurring === "once";
 
     // Título: preserva periodicidade
-    let dfSummary = "Doação pontual ou mensal — você escolhe";
+    let dfSummary = "Doação pontual ou mensal: você escolhe";
     if (df) {
       if (df.amount) dfSummary = "Doar " + fmtBRL(df.amount) + (isMonthly ? "/mês" : "");
       else if (isMonthly) dfSummary = "Doação mensal — você escolhe";
