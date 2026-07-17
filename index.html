@@ -292,7 +292,7 @@
   <!-- MODAL DE DETALHE -->
   <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
     <div role="dialog" aria-modal="true" aria-labelledby="modal-name" onClick="{{ close }}" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: clamp(10px, 4vw, 48px); background: rgba(24,20,56,0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); overflow-y: auto; animation: zoeBackdrop .25s ease both;">
-      <div onClick="{{ stop }}" style="width: 100%; max-width: 760px; margin: auto; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.55); animation: zoeModal .35s cubic-bezier(.16,.8,.3,1) both; display: flex; flex-direction: column; max-height: calc(100vh - clamp(20px, 8vw, 96px));">
+      <div onClick="{{ stop }}" style="width: 100%; max-width: 760px; margin: auto; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.55); animation: zoeModal .35s cubic-bezier(.16,.8,.3,1) both;">
         <div style="position: relative;">
           <figure style="margin: 0; position: relative;">
             {{ modalImg }}
@@ -309,7 +309,7 @@
           </button>
         </div>
 
-        <div style="padding: clamp(22px, 3.6vw, 40px); overflow-y: auto; flex: 1 1 auto; min-height: 0;">
+        <div style="padding: clamp(22px, 3.6vw, 40px);">
           <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 8px;">
             <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #cc5b3e; font-weight: 700;">{{ active.n }}ª Expedição</span>
             <span style="font-size: 13px; color: #8a86a8; font-weight: 500;">{{ active.place }} · {{ active.dates }}</span>
@@ -334,7 +334,7 @@
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 0 28px;">
               <sc-for list="{{ active.gallery }}" as="g" hint-placeholder-count="6">
                 <button type="button" onClick="{{ g.onOpen }}" aria-label="Ampliar foto da expedição" style="padding: 0; border: 0; margin: 0; cursor: zoom-in; border-radius: 12px; overflow: hidden; background: #efece5; aspect-ratio: 1 / 1; display: block; transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 14px 28px -14px rgba(41,35,92,0.55);">
-                  <img src="{{ g.src }}" alt="Foto da expedição" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                  <img src="{{ g.src }}" alt="Foto da expedição" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                 </button>
               </sc-for>
             </div>
@@ -1364,7 +1364,7 @@ class Component extends DCLogic {
     const navList = filteredItems.map((it) => it.idx);
     const navLen = navList.length;
     const navPos = navList.indexOf(mi);
-    const GALLERY_N = { "44": 5, "45": 5, "46": 6, "47": 6, "48": 6, "49": 6, "50": 6 };
+    const GALLERY_N = { "44": 5, "45": 5, "46": 6, "47": 6, "48": 6, "49": 6, "50": 0 };
     const active = mi == null ? null : {
       ...exps[mi],
       ...selo(exps[mi].n),
@@ -1490,7 +1490,7 @@ class Component extends DCLogic {
       modalImg: active ? React.createElement("img", {
         src: active.photoSrc,
         alt: active.name + " — " + active.place,
-        style: { width: "100%", height: "clamp(220px, 36vw, 340px)", objectFit: "cover", display: "block" }
+        style: { width: "100%", height: "clamp(160px, 26vw, 240px)", objectFit: "cover", display: "block" }
       }) : null,
       modalOpen: mi != null,
       zoomOn: this.state.zoom != null,
