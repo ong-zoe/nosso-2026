@@ -139,7 +139,7 @@
       <a href="#expedicoes">Expedições</a>
       <a href="#doar">Doar</a>
     </nav>
-    <a href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" style="background: #cc5b3e; color: #fff; font-weight: 600; font-size: clamp(13px, 3.6vw, 15px); letter-spacing: 0.01em; padding: 10px clamp(16px, 4vw, 22px); border-radius: 999px; box-shadow: 0 4px 14px rgba(204,91,62,0.28); transition: transform .15s ease, box-shadow .15s ease, background .15s ease;" style-hover="background: #b84e33; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(204,91,62,0.36); color:#fff;">Doar agora</a>
+    <a href="{{ donateUrl }}" onClick="{{ onDonateGeneric }}" style="background: #cc5b3e; color: #fff; font-weight: 600; font-size: clamp(13px, 3.6vw, 15px); letter-spacing: 0.01em; padding: 10px clamp(16px, 4vw, 22px); border-radius: 999px; box-shadow: 0 4px 14px rgba(204,91,62,0.28); transition: transform .15s ease, box-shadow .15s ease, background .15s ease;" style-hover="background: #b84e33; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(204,91,62,0.36); color:#fff;">Doar agora</a>
   </header>
 
   <main>
@@ -152,7 +152,7 @@
       <h1 style="font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(27px, 6.5vw, 66px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 22px; max-width: 15ch; text-wrap: balance;">Milhares de vidas já alcançadas em 2026. E tudo isso começa com <em style="font-style: italic; color: #f4a48c;">você.</em></h1>
       <p style="font-size: clamp(15px, 2vw, 18px); line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 0 34px;">Levamos saúde e esperança a comunidades remotas da Amazônia, e nada disso existe sem doadores que sustentam a operação o ano inteiro. Some-se a eles.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
-        <a href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" style="background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(15px, 2vw, 17px); letter-spacing: 0.01em; padding: 16px 34px; border-radius: 999px; box-shadow: 0 14px 34px -10px rgba(204,91,62,0.6); transition: transform .15s ease, background .15s ease;" style-hover="background:#b84e33; transform:translateY(-2px); color:#fff;">Quero doar agora</a>
+        <a href="{{ donateUrl }}" onClick="{{ onDonateGeneric }}" style="background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(15px, 2vw, 17px); letter-spacing: 0.01em; padding: 16px 34px; border-radius: 999px; box-shadow: 0 14px 34px -10px rgba(204,91,62,0.6); transition: transform .15s ease, background .15s ease;" style-hover="background:#b84e33; transform:translateY(-2px); color:#fff;">Quero doar agora</a>
         <a href="#expedicoes" style="background: rgba(255,255,255,0.12); color: #fff; font-weight: 600; font-size: clamp(15px, 2vw, 17px); padding: 16px 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: background .15s ease;" style-hover="background:rgba(255,255,255,0.22); color:#fff;">Ver as expedições</a>
       </div>
       <div class="hero-stats" style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(18px, 4vw, 44px); margin-top: clamp(36px, 5vw, 52px); padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.2);">
@@ -220,7 +220,7 @@
         <h2 style="font-family: 'Cooper Black', 'Coustard', Georgia, serif; font-weight: 400; font-size: clamp(23px, 3.4vw, 34px); line-height: 1.14; margin: 0; text-wrap: balance;">Sua doação garante a próxima partida para a floresta.</h2>
       </div>
       <div style="flex-shrink: 0; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(14px, 2vw, 24px);">
-        <a href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" style="display: inline-flex; align-items: center; gap: 9px; background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(15px, 2vw, 17px); padding: 16px 30px; border-radius: 999px; box-shadow: 0 14px 34px -10px rgba(204,91,62,0.75); transition: transform .15s ease, background .15s ease;" style-hover="background: #b84e33; transform: translateY(-2px); color: #fff;">Doar agora</a>
+        <a href="{{ donateUrl }}" onClick="{{ onDonateGeneric }}" style="display: inline-flex; align-items: center; gap: 9px; background: #cc5b3e; color: #fff; font-weight: 700; font-size: clamp(15px, 2vw, 17px); padding: 16px 30px; border-radius: 999px; box-shadow: 0 14px 34px -10px rgba(204,91,62,0.75); transition: transform .15s ease, background .15s ease;" style-hover="background: #b84e33; transform: translateY(-2px); color: #fff;">Doar agora</a>
         <a href="#doar" style="display: inline-flex; align-items: center; gap: 7px; color: #fff; font-weight: 600; font-size: clamp(14px, 1.9vw, 16px); padding: 14px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.55); transition: border-color .15s ease, background .15s ease, color .15s ease;" style-hover="border-color:#fff; background:rgba(255,255,255,0.1); color:#fff;">Conhecer os planos ↓</a>
       </div>
     </div>
@@ -594,7 +594,7 @@
     <div style="max-width: 1080px; margin: 32px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 12.5px; color: #8078b0;">Relatórios de expedição · 1º semestre de 2026 · 44ª à 50ª expedição</div>
   </footer>
 
-  <a class="mobile-cta" href="{{ donateMonthlyUrl }}" onClick="{{ onDonateMonthly }}" aria-label="Doar agora">
+  <a class="mobile-cta" href="{{ donateUrl }}" onClick="{{ onDonateGeneric }}" aria-label="Doar agora">
     <span style="flex: 1; min-width: 0; font-size: 12.5px; line-height: 1.28; color: #29235c; font-weight: 600;">Sua doção garante a próxima expedição</span>
     <span style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 7px; background: #cc5b3e; color: #fff; font-weight: 700; font-size: 14.5px; letter-spacing: 0.01em; padding: 12px 20px; border-radius: 999px; box-shadow: 0 6px 16px -6px rgba(204,91,62,0.6);">Doar agora →</span>
   </a>
@@ -1440,7 +1440,7 @@ class Component extends DCLogic {
     const isOnce    = df && df.recurring === "once";
 
     // Título: preserva periodicidade
-    let dfSummary = "Doação — você escolhe o valor";
+    let dfSummary = "Doação pontual ou mensal — você escolhe";
     if (df) {
       if (df.amount) dfSummary = "Doar " + fmtBRL(df.amount) + (isMonthly ? "/mês" : "");
       else if (isMonthly) dfSummary = "Doação mensal — você escolhe";
